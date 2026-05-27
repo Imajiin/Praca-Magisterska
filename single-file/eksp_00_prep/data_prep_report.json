@@ -1,0 +1,123 @@
+{
+  "n_total": 14728321,
+  "n_anomalies": 1544104,
+  "n_normal": 13184217,
+  "anomaly_percentage": 10.48,
+  "null_cnt": 0,
+  "duplicate_cnt": 5881781,
+  "segment_analysis": {
+    "n_segments": 190,
+    "avg_length": 8126.86,
+    "median_length": 601.5,
+    "min_length": 1,
+    "max_length": 116061
+  },
+  "channel_stats": {
+    "per_channel": {
+      "channel_41": {
+        "mean": 0.8082,
+        "std": 0.1176,
+        "min": 0.0,
+        "25%": 0.8055,
+        "50%": 0.8094,
+        "75%": 0.8141,
+        "max": 0.9821,
+        "null_pct": 0.0,
+        "is_const": false
+      },
+      "channel_42": {
+        "mean": 0.7821,
+        "std": 0.1293,
+        "min": 0.0,
+        "25%": 0.7783,
+        "50%": 0.7831,
+        "75%": 0.7896,
+        "max": 0.9663,
+        "null_pct": 0.0,
+        "is_const": false
+      },
+      "channel_43": {
+        "mean": 0.7686,
+        "std": 0.1327,
+        "min": 0.0,
+        "25%": 0.7664,
+        "50%": 0.7703,
+        "75%": 0.7743,
+        "max": 0.9507,
+        "null_pct": 0.0,
+        "is_const": false
+      },
+      "channel_44": {
+        "mean": 0.794,
+        "std": 0.1242,
+        "min": 0.0,
+        "25%": 0.7913,
+        "50%": 0.796,
+        "75%": 0.8008,
+        "max": 0.9755,
+        "null_pct": 0.0,
+        "is_const": false
+      },
+      "channel_45": {
+        "mean": 0.8104,
+        "std": 0.1167,
+        "min": 0.0,
+        "25%": 0.8067,
+        "50%": 0.8118,
+        "75%": 0.8169,
+        "max": 1.0,
+        "null_pct": 0.0,
+        "is_const": false
+      },
+      "channel_46": {
+        "mean": 0.7656,
+        "std": 0.1366,
+        "min": 0.0,
+        "25%": 0.7611,
+        "50%": 0.767,
+        "75%": 0.7729,
+        "max": 0.9595,
+        "null_pct": 0.0,
+        "is_const": false
+      }
+    },
+    "high_corr": [
+      [
+        "channel_41",
+        "channel_45",
+        0.9603
+      ],
+      [
+        "channel_41",
+        "channel_46",
+        0.9531
+      ],
+      [
+        "channel_42",
+        "channel_45",
+        0.994
+      ]
+    ]
+  },
+  "split_info": {
+    "split_ratio": 0.8,
+    "split_index": 11782656,
+    "train_size": 11782656,
+    "test_size": 2945665,
+    "train_anom": 1233929,
+    "test_anom": 310175,
+    "train_anom_pct": 10.47,
+    "test_anom_pct": 10.53
+  },
+  "generated_at": "2026-05-09T11:44:39.356356",
+  "data_path": "data\\raw\\train.parquet",
+  "channels": [
+    "channel_41",
+    "channel_42",
+    "channel_43",
+    "channel_44",
+    "channel_45",
+    "channel_46"
+  ],
+  "target_col": "is_anomaly"
+}

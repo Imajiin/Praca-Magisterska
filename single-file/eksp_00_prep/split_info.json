@@ -1,0 +1,10 @@
+{
+  "split_ratio": 0.8,
+  "split_index": 11782656,
+  "train_size": 11782656,
+  "test_size": 2945665,
+  "train_anom": 1233929,
+  "test_anom": 310175,
+  "train_anom_pct": 10.47,
+  "test_anom_pct": 10.53
+}

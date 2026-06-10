@@ -1,0 +1,163 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global/global}
+  \entry{kotowski2024esaadb}{article}{}{}
+    \name{author}{11}{}{%
+      {{hash=KK}{%
+         family={Kotowski},
+         familyi={K\bibinitperiod},
+         given={Krzysztof},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=HC}{%
+         family={Haskamp},
+         familyi={H\bibinitperiod},
+         given={Christoph},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=AJ}{%
+         family={Andrzejewski},
+         familyi={A\bibinitperiod},
+         given={Jacek},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RB}{%
+         family={Ruszczak},
+         familyi={R\bibinitperiod},
+         given={Bogdan},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=NJ}{%
+         family={Nalepa},
+         familyi={N\bibinitperiod},
+         given={Jakub},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LD}{%
+         family={Lakey},
+         familyi={L\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Collins},
+         familyi={C\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kolmas},
+         familyi={K\bibinitperiod},
+         given={Aybike},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bartesaghi},
+         familyi={B\bibinitperiod},
+         given={Mauro},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MHJ}{%
+         family={Martínez-Heras},
+         familyi={M\bibinithyphendelim H\bibinitperiod},
+         given={Jose},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=DCG}{%
+         family={De\bibnamedelima Canio},
+         familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+         given={Gabriele},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KK+1}
+    \strng{fullhash}{KKHCAJRBNJLDCPKABMMHJDCG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{{European Space Agency Benchmark for Anomaly Detection in
+  Satellite Telemetry}}
+    \field{journaltitle}{arXiv preprint arXiv:2406.17826}
+    \field{year}{2024}
+  \endentry
+
+  \entry{sathyanarayanan2024confusion}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=SS}{%
+         family={Sathyanarayanan},
+         familyi={S\bibinitperiod},
+         given={S},
+         giveni={S},
+      }}%
+      {{hash=TBR}{%
+         family={Tantri},
+         familyi={T\bibinitperiod},
+         given={B\bibnamedelima Roopashri},
+         giveni={B\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SSTBR1}
+    \strng{fullhash}{SSTBR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{4S}
+    \field{pages}{4023\bibrangedash 4031}
+    \field{title}{Confusion matrix-based performance evaluation metrics}
+    \field{volume}{27}
+    \field{journaltitle}{African Journal of Biomedical Research}
+    \field{year}{2024}
+  \endentry
+
+  \entry{yang2024confusion}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=YS}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Shengping},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BG}{%
+         family={Berdine},
+         familyi={B\bibinitperiod},
+         given={Gilbert},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YSBG1}
+    \strng{fullhash}{YSBG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \verb{doi}
+    \verb 10.12746/swrccc.v12i53.1391
+    \endverb
+    \field{number}{53}
+    \field{pages}{75\bibrangedash 79}
+    \field{title}{Confusion matrix}
+    \field{volume}{12}
+    \field{journaltitle}{The Southwest Respiratory and Critical Care
+  Chronicles}
+    \field{year}{2024}
+  \endentry
+\enddatalist
+\endinput

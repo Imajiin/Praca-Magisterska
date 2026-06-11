@@ -534,7 +534,7 @@
 	
 	
 	
-	\chapter{Zagadnienia teoretyczne}
+	\chapter{Detekcja anomalii w szeregach czasowych}
 	
 	\section{Szeregi czasowe i anomalie}
 	Szereg czasowy jest strukturą punktów zależnych od czasu. Podstawowy schemat dekompozycji sygnału wyraża się wzorem:
@@ -568,7 +568,7 @@
 	
 	\section{Miary oceny jakości detekcji}
 	
-	W celu ocenienia skuteczności algorytmów detekcji anomalii w trakcie badań wykorzystuje się standardowe miary oceny jakości wywodzące się z macierzy błędów (zwana też macierzą pomyłek)(ang. \english{Confusion Matrix}) \cite{yang2024confusion}. Jest to dwukolumnowa i dwuwierszowa tabela. Wiersze oznaczają właściwe wartości oznaczone jako pozytywne i negatywne. Kolumny, natomiast reprezentują wartości prognozowane przez testowany model. Umiejscowienie typów danych nie jest ustandaryzowane. Wartości wyznaczone przez model mogą być w wierszach tabeli, a właściwe jako kolumny \cite{yang2024confusion}. Macierz błędów składa się z 4 kluczowych wartości będących kombinacją wartości w tabeli:
+	W celu ocenienia skuteczności algorytmów detekcji anomalii w trakcie badań wykorzystuje się standardowe miary oceny jakości wywodzące się z macierzy błędów (zwana też macierzą pomyłek, ang. \english{confusion matrix}) \cite{yang2024confusion}. Jest to dwukolumnowa i dwuwierszowa tabela. Wiersze oznaczają właściwe wartości oznaczone jako pozytywne i negatywne. Kolumny, natomiast reprezentują wartości prognozowane przez testowany model. Umiejscowienie typów danych nie jest ustandaryzowane. Wartości wyznaczone przez model mogą być w wierszach tabeli, a właściwe jako kolumny \cite{yang2024confusion}. Macierz błędów składa się z 4 kluczowych wartości będących kombinacją wartości w tabeli:
 	\begin{itemize}
 		\item \textbf{TP (True Positive)} - prawidłowa wykryta anomalia,
 		\item \textbf{FP (False  Positive)} - fałszywy alarm (normalna wartość sklasyfikowana jako anomalia),
@@ -576,8 +576,8 @@
 		\item \textbf{TN (True Negative)} - prawidłowy wykryty stan normalny.
 	\end{itemize}
 	
-	\subsection{Precyzja (Precision)}
-	Precyzja określa, jak wiele z danych sklasyfikowanych jako pozytywne, są faktycznie pozytywne. W przypadku wykrywania anomalii, analogicznie, jest to stosunek faktycznych wykrytych wartości, które model klasyfikuje jako wartość niezgodna z normą, do wszystkich alarmów, jaki model podnosi. Określa się ją wzorem:
+	\subsection{Precyzja}
+	Precyzja \ksremark{(ang. \english{precision})} określa, jak wiele z danych sklasyfikowanych jako pozytywne, są faktycznie pozytywne. W przypadku wykrywania anomalii, analogicznie, jest to stosunek faktycznych wykrytych wartości, które model klasyfikuje jako wartość niezgodna z normą, do wszystkich alarmów, jaki model podnosi. Określa się ją wzorem: \ksremark{To nie jest dobry pomysł pisać słowa we wzorach. Proszę sobie wybrać jakiś symbol, np. $P$, zamiast $Precision$ i go używać konsekwentnie.}
 	\begin{equation}
 		Precision = \frac{TP}{TP + FP}
 		\label{eq:precision}
@@ -595,6 +595,7 @@
 	
 	\subsection{F1-Score}
 	
+	\ksremark{$F_1$}
 	\begin{equation}
 		F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
 		\label{eq:f1score}
@@ -608,7 +609,7 @@
 	W tym rozdziale szczegółowo omówiono metodykę badawczą przyjętą w procesie waluacji algorytmów detekcji anomalii. W inżynierii danych i uczeniu maszynowym od nałożonego rygoru na proces eksperymentalny zależy wiarygodność, obiektywizm i jakość uzyskanych wyników, czyli wyłonienie optymalnego algorytmu do ciągłej analizy danych telemetrycznych. Koniecznym działaniem było zaprojektowanie klarownego i powtarzalnego rurociągu badawczego (ang. \english{research pipeline}).
 	Proces eksperymentalny składa się z czterech głównych faz:
 	\begin{enumerate}
-		\item \textbf{Akwizycja i przygotowanie danych :} W tym kroku zakłada się pozyskanie rzeczywistego zbioru danych telemetrycznych(ESA-ADB), jego analiza, dobór odpowiednich kanałów oraz inżynieria cech z wykorzystaniem techniki okna kroczącego/
+		\item \textbf{Akwizycja i przygotowanie danych:} W tym kroku zakłada się pozyskanie rzeczywistego zbioru danych telemetrycznych(ESA-ADB), jego analiza, dobór odpowiednich kanałów oraz inżynieria cech z wykorzystaniem techniki okna kroczącego/
 		\item \textbf {Punkt odniesienia:} Implementacja i optymalizacja jednej z metod statystycznych, stanowiącej odniesienie do badania innych, bardziej złożonych metod.
 		\item \textbf{Właściwe badanie:} Trening i optymalizacja dobranych algorytmów z trzech różnych klas: metod statystycznych, uczenia maszynowego i głębokiego uczenia opartego na sieciach neuronowych w warunkach pełnej kontroli.
 		\item \textbf {Ewaluacja i weryfikacja:} Zestawienie uzyskanych wyników przy pomocy głównych miar (Precyzja, Czułość, F1-Score) oraz sprawdzenie ich rzetelności za pomocą testów statystycznych.
@@ -617,27 +618,27 @@
 	\newpage
 	
 	\section{Zbiór danych}
-	Do przeprowadzenia badań wykorzystano zbiór Anomaly Detection Benchmark autorstwa Europejskiej Agencji Kosmicznej. Jest to otwarty zbiór służący do oceny zdolności algorytmów wykrywających anomalie w szeregach czasowych. Obejmuje on setki miliony próbek danych zebranych w trakcie misji satelitarnych w przeciągu 14 lat. Benchmark udostępnia 76 kanałów danych o różnych odsetkach zawartości anomalii. Zostały także poddane procesowi etykietowania, aby ułatwić pracę osobom przeprowadzającym badania, a także normalizacji do zakresu od 0 do 1, przez inżynierów Agencji. Wszystkie anomalie oznaczone w zbiorze.
+	Do przeprowadzenia badań wykorzystano zbiór Anomaly Detection Benchmark \ksremark{cytowanie} autorstwa Europejskiej Agencji Kosmicznej. Jest to otwarty zbiór służący do oceny zdolności algorytmów wykrywających anomalie w szeregach czasowych. Obejmuje on setki miliony próbek danych zebranych w trakcie misji satelitarnych w przeciągu 14 lat. Benchmark udostępnia 76 kanałów danych o różnych odsetkach zawartości anomalii. Zostały także poddane procesowi etykietowania, aby ułatwić pracę osobom przeprowadzającym badania, a także normalizacji do zakresu od 0 do 1, przez inżynierów Agencji. Wszystkie anomalie oznaczone w zbiorze.
 	W pracy skupiono się głównie na 6 kanałach oznaczonych  numerami od 41 do 46, wskazanych, jako najbardziej reprezentatywne przez autorów, aby nie przetwarzać całości zbioru.  Łącznie posiadają one niecałe 15 mln próbek, co przy całości zbioru, który posiada ponad 700 milionów danych. 
 	
 	\subsection{Charakterystyka i podział 80/20}
-	Wszystkie kanały zbioru, które zostały poddane badaniom, tak jak wspomniano wcześniej, posiadają łącznie 14.7 mln próbek. W przypadku ewaluacji pod kątem wykrywania anomalii, podstawową praktyką jest podzielenie zbioru na dwie części. Pierwsze 80 procent danych będzie służyć do trenowania modelu, natomiast na pozostałych 20 procent będzie przeprowadzany test.  Jest to podzielenie chronologicznie, co zapewnia zachowanie trendów i zapobieganie znikaniom informacji z przeszłości modelu. Ta praktyka symuluje ocenienie skuteczności algorytmów w warunkach realistycznej implementacji w dowolnej gałęzi przemysłu, która wymaga ewaluacji danych, które będą świadczyć o skali reprezentatywności próbek we właściwym procesie badania, gdzie modele są trenowane na historycznych danych i testowane na wartościach dopiero nadchodzących, nieznanych.
+	Wszystkie kanały zbioru, które zostały poddane badaniom, tak jak wspomniano wcześniej, posiadają łącznie 14.7 mln próbek. W przypadku ewaluacji pod kątem wykrywania anomalii, podstawową praktyką jest podzielenie zbioru na dwie części. Pierwsze 80 procent danych będzie służyć do trenowania modelu, natomiast na pozostałych 20 procent będzie przeprowadzany test.  Jest to podzielenie chronologicznie, co zapewnia zachowanie trendów i zapobieganie znikaniom \ksremark{Trochę nie rozumiem.} informacji z przeszłości modelu. Ta praktyka symuluje ocenienie skuteczności algorytmów w warunkach realistycznej implementacji w dowolnej gałęzi przemysłu, która wymaga ewaluacji danych, które będą świadczyć o skali reprezentatywności próbek we właściwym procesie badania, gdzie modele są trenowane na historycznych danych i testowane na wartościach dopiero nadchodzących, nieznanych.
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_00_sig_overview.png}
 		\caption{Przegląd sygnałów z podziałem chronologicznym 80/20.}
 		\label{fig:00-sig-overview}
 	\end{figure}
 	Rysunek ~\ref{fig:00-sig-overview} przedstawia... umieszczony powyżej przedstawia przegląd rozkładu wartości danych we wszystkich badanych kanałach. Można zauważyć, że czerwona, przerywana linia oznacza linię podziału danych we wszystkich kanałach na zbiory uczące i testując
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_raw_01_overview.png}
 		\caption{Wykres kanałów z występującymi anomaliami}
 		\label{fig:raw:01-overview}
 	\end{figure}
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_raw_02_zoom_segments.png}
 		\caption{Przybliżone wykresy przedstawiające segmenty z anomaliami}
@@ -647,22 +648,22 @@
 	Z kolei na rysunku ~\ref{fig:raw:01-overview} ukazano rozkład anomalii w zbiorze, aby pokazać, gdzie się skupiają. W celu ukazania skali pokazano tylko co pięćdziesiątą próbkę, aby pokazać skalę danych na których ewaluowano model. Aby jednak wskazać konkretniej jak wyglądają segmenty anomalii na tle danych normalnych zdecydowano dać przybliżenie na poszczególne segmenty, które zostały ukazane na rysunku ~\ref{fig:raw:02-zoom-segments}. Na obu tych rysunkach anomalie zostały oznaczone na czerwono, a intensywność barwy jest wprost proporcjonalna do gęstości tych danych na obszarze. 
 	
 	\subsection{Balans klas i rozkład anomalii}
-	Na rysunku ~\ref{fig:00-class-balance} umieszczonym poniżej widać jak rozłożenie danych na treningowe i testowe wpływa na odsetek anomalii. W analizowanej próbce, opartej na kanałach od 41 do 46 pierwsza część, czyli 11,7 mln danych zawiera 1,2 mln próbek oznaczonych jako anomalie, co przekłada się na 10,47 procent anomalii. W dalszych częściach badania ta część będzie służyć do uczenia modeli. Pozostała część zbioru, obejmująca pozostałą  część danych, posiada 310 tysięcy anomalii w sobie. Daje to łączenie 10,48 procent anomalii w całości. Oznacza to, że jest to wartość zdecydowanie większa niż w reszcie benchmarku, gdyż średnia danych całości wynosi ledwie 1,8 procent dla danych Mission-1\cite{kotowski2024esaadb}, co czyni badaną część skrajnie niezbilansowaną, co może mieć wpływ na końcowy wynik.
-	\begin{figure}[H]
+	Na rysunku ~\ref{fig:00-class-balance} umieszczonym poniżej widać \comma\ jak rozłożenie danych na treningowe i testowe wpływa na odsetek anomalii. W analizowanej próbce, opartej na kanałach od 41 do 46 pierwsza część, czyli 11,7 mln danych zawiera 1,2 mln próbek oznaczonych jako anomalie, co przekłada się na 10,47 procent anomalii. W dalszych częściach badania ta część będzie służyć do uczenia modeli. Pozostała część zbioru, obejmująca pozostałą  część danych, posiada 310 tysięcy anomalii w sobie. Daje to łączenie 10,48 procent anomalii w całości. Oznacza to, że jest to wartość zdecydowanie większa niż w reszcie benchmarku, gdyż średnia danych całości wynosi ledwie 1,8 procent dla danych Mission-1\cite{kotowski2024esaadb}, co czyni badaną część skrajnie niezbilansowaną, co może mieć wpływ na końcowy wynik.
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_00_class_balance.png}
 		\caption{Bilans klas oraz rozkład występowania anomalii w zbiorach danych.}
 		\label{fig:00-class-balance}
 	\end{figure}
 	Na poniższym rysunku ~\ref{fig:00-anomaly-dist} widać z kolei jak anomalie rozkładają się w poszczególnych zbiorach. Z kolei rysunek ~\ref{fig:raw:03-distributions} przedstawia rozkład wartości surowych dla wszystkich 6 analizowanych kanałów, z wyróżnionym rozróżnieniem na dane normalne i anomalie, w formie histogramu, jakie wartości najczęściej były klasyfikowane. 
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_00_anomaly_dist.png}
 		\caption{Rozkład anomalii w zbiorach treningowym i testowym}
 		\label{fig:00-anomaly-dist}
 	\end{figure}
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_raw_03_distributions.png}
 		\caption{Rozkład wartości kanałów}
@@ -672,8 +673,8 @@
 	
 	
 	\section{Środowisko i implementacja}
-	Do przeprowadzenia badań wykorzystano laptopa posiadającego procesor AMD Ryzen 5 5600H, posiadający 6 rdzeni i 12 wątków, 16 GB pamięci RAM i zintegrowaną kartę graficzną AMD Radeon™ Graphics z systemem operacyjnym Windows 11. Wszystkie programy zostały wykonane w języku Python w wersji 3.12.2 z wykorzystaniem  poniższych wersji bibliotek:
-	\begin{table}[H]
+	Do przeprowadzenia badań wykorzystano laptop posiadający procesor AMD Ryzen 5 5600H, posiadający 6 rdzeni i 12 wątków, 16 GB pamięci RAM i zintegrowaną kartę graficzną AMD Radeon™ Graphics z systemem operacyjnym Windows 11. Wszystkie programy zostały wykonane w języku Python w wersji 3.12.2 z wykorzystaniem  poniższych wersji bibliotek:
+	\begin{table}%[H]
 		\centering
 		\caption{Wersje najważniejszych bibliotek wykorzystanych w eksperymentach}
 		\label{tab:biblioteki}
@@ -697,11 +698,11 @@
 	
 	
 	\section{Preprocessing i inżynieria cech}
-	Przed rozpoczęciem właściwych prac dokonano przygotowania danych do właściwego testowania. Dane w momencie publikacji przez Europejską Agencję Kosmiczną już były ustandaryzowane do zbliżonego poziomu do  0-1. Z racji działania na danych chronologicznych, w ramach wzięcia pod uwagę lokalnego kontekstu czasowego, zastosowano technikę okna kroczącego. Polega ona na tym, że dla każdej próbki analizie poddano zarówno bieżącą wartość, jak i ustaloną wartość poprzednich danych. Okno długości w, w chwili t obejmuje próbki od t – w +1 do t.  Używając wartości w tym oknie obliczono trzy cechy opisujące lokalne zachowanie sygnału
+	Przed rozpoczęciem właściwych prac dokonano przygotowania danych do właściwego testowania. Dane w momencie publikacji przez Europejską Agencję Kosmiczną już były ustandaryzowane do zbliżonego poziomu do  0-1 \ksremark{trochę nie rozumiem}. Z racji działania na danych chronologicznych, w ramach wzięcia pod uwagę lokalnego kontekstu czasowego, zastosowano technikę okna kroczącego. Polega ona na tym, że dla każdej próbki analizie poddano zarówno bieżącą wartość, jak i ustaloną wartość poprzednich danych. Okno długości w \ksremark{tryb matematyczny: $w$}, w chwili t obejmuje próbki od t – w +1 do t.  Używając wartości w tym oknie obliczono trzy cechy opisujące lokalne zachowanie sygnału
 	
 	Pierwszą z nich było odchylenie od lokalnego poziomu bazowego, określa ono jak bardzo wartość bieżąca różniła się od średniego poziomu obserwowanego w szerokości okna kroczącego. Pozwala ono na znalezienie momentu, w którym namierzono sytuację odchylenia sygnału od typowego przebiegu, co może sugerować występowanie anomalii. 
-	
-	\begin{align}
+	\ksremark{Wzór \eqref{eq:mu}: jakiś symbol zamiast $\text{diff}$}
+		\begin{align}
 		\text{diff}_t &= x_t - \mu_t^{(w)}, \label{eq:diff} \\
 		\mu_t^{(w)}   &= \frac{1}{w} \sum_{i=t-w+1}^{t} x_i. \label{eq:mu}
 	\end{align}
@@ -717,19 +718,18 @@
 		}.
 	\end{equation}
 	
-	Ostatnią z wartości, którą wyznaczono z pomocą okna kroczącego jest tempo zmiany sygnału pomiędzy próbkami. Pomaga ona namierzyć moment, w którym sygnał gwałtownie zmienia swój charakter. Zależnie od wyniku, może być to skok w górę lub gwałtowny spadek. W ramach badania za tempo zmiany uznano różnicę w charakterze wartości względem pięciu ostatnich próbek.
-	
-	\begin{equation}
+	Ostatnią z wartości, którą wyznaczono z pomocą okna kroczącego jest tempo zmiany sygnału pomiędzy próbkami. Pomaga ona namierzyć moment, w którym sygnał gwałtownie zmienia swój charakter. Zależnie od wyniku, może być to skok w górę lub gwałtowny spadek. W ramach badania za tempo zmiany uznano różnicę w charakterze wartości względem pięciu \ksremark{Skąd ta wartość?} ostatnich próbek.
+		\begin{equation}
 		\text{roc}_t^c = x_t^c - x_{t-5}^c
 	\end{equation}
-	
+	\ksremark{Co oznacza $c$, $roc$?}
 	
 	
 	Wszystkie te cechy mogą tworzyć prostą reprezentację przebiegu sygnału. Po przetworzeniu danych przez okno kroczące każdy z kanałów został opisany dodatkowymi, lokalnymi cechami, a dane wejściowe dla modeli dostały rozszerzoną reprezentację i charakterystykę sygnału. Natomiast to rozwiązanie posiada jeden problem. Dla pierwszych próbek nie można po liczyć cech z pomocą okna kroczącego, bo brakuje wcześniejszych danych tworzących kontekst, który stanowi punkt odniesienia do wyliczania metryk. Proporcjonalnie, im większe okno, tym więcej danych utracono, gdyż wcześniejsze wiersze usunięto. Dzięki temu, każda próbka posiadała pełny zestaw cech. Pomimo tego, że autorzy zbioru dokonali wstępnej normalizacji \cite{kotowski2024esaadb}, obliczone cechy lokalne za pomocą techniki okna kroczącego zostały poddane dodatkowej standaryzacji z-score za pomocą funkcji \text{StandardScaler}. Parametry zostały wyliczone w ten sposób, czyli odchylenie standardowe i średnia tylko dla danych normalnych zbioru treningowego, co zapobiega przedostaniu się anomalii do modelu.
 	
 	\section{Dobór okna kroczącego}
 	W ramach doboru rozmiaru okna kroczącego przeprowadzono eksperyment testujący wyniki głównych miar w zależności od rozmiaru okna kroczącego, a co za tym idzie cech z nim związanych. Do badań użyto 38 rozmiarów, od pojedynczych jedności, a konkretnie 5, przez dziesiątki, setki, a kończąc na 150 tysiącach jednostek. Natomiast w ramach pierwszej próby użyto tylko okna rozmiarów do ewaluacji od 5 do 5000, aby dać umiarkowane pojęcie o charakterze, wraz z wynikami, w celu znalezienia maksimum, odpowiednio zwiększano granice, aż zwiększanie rozmiarów okien nie dawało poprawy wyników. Do testów użyto algorytmu IQR wraz z wartością mnożnika równą 0.5. Wyniki tego badania pokazuje rysunek ~\ref{fig:01b-large-windows} zamieszczony poniżej.
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_01b_large_windows.png}
 		\caption{Analiza wpływu rozmiaru okna kroczącego na jakość detekcji anomalii.}
@@ -738,7 +738,7 @@
 	
 	
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_02b_heatmap.png}
 		\caption{Macierz korelacji i wpływu dobieranych parametrów na skuteczność modelu.}
@@ -874,7 +874,7 @@
 	$Q_3 + k \cdot \text{IQR}$, gdzie k oznacza mnożnik sterujący granicą. Próbka badawcza jest uznawana za anomalię, jeżeli jedna z cech przekroczy wyznaczony próg. W ramach testów testowano granice w zakresie od 0,3, do 2{,}0. Ważnym punktem, co ukazuje rysunek \ref{fig:02b-iqr-params}, który przedstawia wpływ strojonego parametru, jest spadek czułości algorytmu, odwrotnie proporcjonalny do parametru strojenia, czyli mnożnika. Najmniejsza wartość badana w wysokości 0{,}3 dała najlepszy wynik w wysokości 0{,}9733, co oznacza, że algorytm nie wykrył tylko prawie 3 \% anomalii, jednak zwiększenie parametru strojenia, dało pozytywny rezultat w początkowych przypadkach, co miało wpływ na lepszy wynik miary F1. Dalsze zwiększanie mnożnika powodowało gwałtowne spadki wyników, zwłaszcza czułości, gdzie największa wartość mnożnika wykrywa niecałe 20 \% wszystkich anomalii. Precyzja, nawet dla większych wartości, daje lepsze wyniki niż początkowe konfiguracje mnożnika, co powoduje kompromis dla wartości 0.8
 	
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_02b_iqr_params.png}
 		\caption{Wpływ mnożnika na metryki detekcji w metodzie IQR}
@@ -883,7 +883,7 @@
 	
 	\subsection{Metoda Z-Score}
 	Metoda Z-Score działa poprzez normalizację każdej z cech w odniesieniu do jej rozkładu w zbiorze treningowym i klasyfikuje próbkę jako anomalię, jeżeli któraś z cech przekracza próg ~$\theta$ w jednostkach odchylenia standardowego. Wartości progu testowane w ramach badań zawierały się w przedziale od 0.2 do 3.0
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_02b_zscore_params.png}
 		\caption{Wpływ progu odcięcia na metryki detekcji w metodzie Z-Score}
@@ -894,7 +894,7 @@
 	\subsection{Zmodyfikowana metoda Z-Score}
 	Zmodyfikowana metoda Z-Score od standardowej różni się zamianą średniej stosuję medianę. Odchylenie standardowe zastąpione jest medianą bezwzględnych odchyleń (MAD). Zmiany te dają większą odporność na skrajne wartości, które występują w zbiorze treningowym. 
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_02b_zscore_mod_params.png}
 		\caption{Wpływ progu odcięcia na metryki detekcji w zmodyfikowanej metodzie Z-Score}
@@ -906,7 +906,7 @@
 	\subsection{CUSUM}
 	Metoda CUSUM działa na mechanizmie pamięci, która zapisuje skumulowane odchylenia, co powoduje, że nakładanie cech z mechanizmu okna kroczącego jest zbędne, gdyż ich dodanie powoduje zamieszanie i niezdolność algorytmu do dochodzenia do rozsądnych wyników. W eksperymentach dla tej metody dobierano dwa parametry. Pierwszy ~$h$ to próg decyzji, a drugi ~$k$ oznacza dryf, kontrolujący wrażliwość na zmienność sygnału. Wartości te były sprawdzane w parach próg równy 0.001 i dryft 0.0001 i proporcjonalnie zwiększane do poziomu progu 0.1.
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_02b_cusum_raw_params.png}
 		\caption{Wpływ progu detekcji na metryki w metodzie CUSUM na surowych danych.}
@@ -918,13 +918,13 @@
 	\subsection{EWMA}
 	Wykładniczo ważona średnia ruchoma (EWMA) dokonuje dopasowania poziomu referencyjnego sygnału, które jest regulowane przez parametr \textit{span}. Anomalia zostaje wykryta, gdy wartość cechy odbiega od wygładzonej średniej o więcej niż $\theta$ lokalnych odchyleń standardowych okna. W eksperymencie testowano oba parametry. 
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_02b_ewma_span.png}
 		\caption{Wpływ parametru rozpiętości na metryki w metodzie EWMA.}
 		\label{fig:02b-ewma-span}
 	\end{figure}
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_02b_ewma_threshold.png}
 		\caption{Wpływ progu odcięcia na metryki w metodzie EWMA.}
@@ -936,7 +936,7 @@
 	\subsection{Podsumowanie wyników metod statystycznych}
 	Rysunek \ref{fig:02b-summary-comparison} zestawia ze sobą wszystkie najlepsze konfiguracje parametrów, dla każdej z ewaluowanych metod. Żadna z testowanych metod nie poprawiła wartości F1 punktu odniesienia. Jedną rzeczą, która charakteryzuje całokształt wyników, jest brak równowagi pomiędzy precyzją, a czułością, co ma duży wpływ na wartość F1. Wyniki wszystkich metod nie różnią się znacznie między sobą, między najlepszą (IQR, F1\,=\,0{,}2211), a najgorszą (EWMA, F1\,=\,0{,}1964) metodą jest tylko 0.0247 punktu F1 różnicy. Ograniczenie skuteczności leży nie w doborze metody, ale w naturze progowania jednowymiarowego.
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_02b_summary_comparison.png}
 		\caption{Porównanie metryk uzyskanych przez metody statystyczne z pierwszym progiem}
@@ -949,13 +949,13 @@
 	\subsection{Isolation Forest}
 	Algorytm Isolation Forest, zwany także lasem izolacji działa poprzez losowe dzielenie przestrzeni cech na niezależne obszary, w celu odizolowania anomalii. W momencie, jeżeli dany punkt potrzeba wyraźnie mniejszej liczby podziałów do wyróżnienia, jest uznawany wtedy za anomalię. W ramach strojenia modelu, modyfikowanymi parametrami były \textit{contamination}, które określa oczekiwany odsetek anomalii w zbiorze treningowym w zakresie od 0{,}08 do 0{,}3, a także ilość drzew, które losowo dzielą dane. Rozważano przypadek 100, 200 i 300 takich estymatorów.
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_03b_if_params_v4.png}
 		\caption{Wpływ parametru contamination na metryki detekcji w algorytmie Isolation Forest}
 		\label{fig:03b-if-params}
 	\end{figure}
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_03b_isolation_forest_heatmap_v2.png}
 		\caption{Macierz korelacji metryk z parametrem contamination(WIP) w algorytmie Isolation Forest}
@@ -966,13 +966,13 @@
 	
 	\subsection{Local Outlier Factor}
 	Algorytm LOF działa poprzez mierzenie  gęstości punktu w stosunku do jego sąsiadów, czyli odległość do najbliższych punktów w okolicy próbki badanej. Dane, które znalazły się w znacznej odległości od swoich najbliższych sąsiednich punktów, są uznawane za anomalie. W ramach tej metody testowano, tak jak w przypadku poprzedniej, dwa parametry. Pierwszym z nich była liczba najbliższych sąsiadów $k$ do mierzenia odległości od badanego punktu w zakresie od 3 do 50. Drugim parametrem, był znany z poprzedniej metody \textit{contamination}. 
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_03b_lof_params_v4.png}
 		\caption{Wpływ liczby sąsiadów na metryki detekcji w algorytmie Local Outlier Factor}
 		\label{fig:03b-lof-params}
 	\end{figure}
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_03b_lof_heatmap_v3.png}
 		\caption{Macierz korelacji metryk z parametrem contamination(WIP) w algorytmie Local Outlier Factor}
@@ -982,7 +982,7 @@
 	
 	\subsection{One-Class SVM}
 	One-Class SVM jest algorytmem działającym poprzez określenie powierzchni, która oddziela dane normalne od tych oznaczonych jako anomalie w nowej przestrzeni cech. W ramach badań mierzono parametr $nu$, który definiuje dwie rzeczy, górną granicę ułamka błędów treningowych, a także dolną granicę frakcji wektorów nośnych. Jest to metoda generująca ogromne koszty obliczeniowe w porównaniu do reszty z klasy metod uczenia maszynowego, dlatego model ten trenowano na próbce 20000 danych. W dodatku do nauki wykorzystano tylko jądro liniowe, które było jedyną opcją wykonalną dla używanej platformy dla tej skali danych.
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_03b_svm_params_v4.png}
 		\caption{Wpływ górnej granicy błędu na metryki decyzji w algorytmie One-Class SVM}
@@ -992,14 +992,14 @@
 	
 	\subsection{K-Means}
 	Metoda K-Means, zwana też algorytmem klastrowym lub centroidowym, jest metodą, która działa poprzez pogrupowanie danych w klastry, a za anomalie klasyfikuje próbki oddalone od najbliższego centroidu o odległość przekraczającą percentyl rozkładu odległości w zbiorze do trenowania. Parametrami testowanymi dla tej metody były ilość klastrów i wspomniany percentyl odległości.
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_03b_kmeans_params_v2.png}
 		\caption{Wpływ liczby klastrów na metryki detekcji w algorytmie K-Means}
 		\label{fig:03b-kmeans-params}
 	\end{figure}
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_03b_kmeans_heatmap_v4.png}
 		\caption{Macierz korelacji metryk z liczbą klastrów w algorytmie K-Means}
@@ -1009,7 +1009,7 @@
 	
 	\subsection{Podsumowanie wyników metod uczenia maszynowego}
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_03b_summary_comparison.png}
 		\caption{Porównanie metryk uzyskanych przez metody uczenia maszynowego z pierwszym progiem}
@@ -1023,7 +1023,7 @@
 	\subsection{Dense Autoencoder}
 	Autoenkoder oparty jest na technice głębokiej sieci neuronowej, która składa się z warstw, które są w pełni połączone ze sobą, każda część poprzedzająca wysyła dane do kolejnego węzła, który zbiera informacje ze wszystkich we wcześniejszej. Próbki z cechami modelu okna kroczącego są kompresowane do tzw. wąskiego gardła (\textit{bottleneck}), a potem dekoder dokonuje odtworzenia pierwotnego stanu. Jeżeli próbka będzie posiadała błąd rekonstrukcji powyżej wartości progowej, jest uznawana za anomalię. 
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_04b_curves_Dense_AE.png}
 		\caption{Krzywe uczenia modelu sieci neuronowej w metodzie gęstej sieci neuronowej}
@@ -1036,7 +1036,7 @@
 	
 	Następna metoda, od poprzedniej miała tylko jedną różnicę. Jest nią dodanie warstwy Dropout. Jest to technika regulacji, która w trakcie wykonywania treningu dokonuje losowego wyłączania poszczególnych neuronów w warstwie. Ma to na celu zapobieganie koadaptacji neuronów i nałożenie przymusu nauki bardziej rozproszony reprezentacji. Mechanizm Dropout stosowany jest wyłącznie w warstwie kompresującej. 
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_04b_curves_Dense+Dropout_AE.png}
 		\caption{Krzywe uczenia modelu sieci neuronowej w metodzie gęstej sieci neuronowej z droputem}
@@ -1048,7 +1048,7 @@
 	\subsection{CNN-1D Autoencoder}
 	W tym eksperymencie wykorzystano architekturę konwolucyjnej sieci neuronowej z jednowymiarowymi warstwami, która w miejsce gęstych warstw posiada przesuwne filtry, które mają za zadanie nauczenie się lokalnych wzorców w cechach. CNN wychwytuje lokalne korelacje między elementami leżącymi obok siebie w wektorze wejściowym, w odróżnieniu od architektury gęstej, która globalnie analizuje wszystkie cechy. 
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_04b_curves_CNN-1D_AE.png}
 		\caption{Krzywe uczenia modelu sieci neuronowej w metodzie konwolucyjnej sieci neuronowej}
@@ -1061,7 +1061,7 @@
 	
 	LSTM oznacza Long Short-Term Memory i jest specjalnym rodzajem sieci neuronowej o architekturze rekurencyjnej. Autoenkoder oparty na tej technice modeluje zależności sekwencyjne w czasie, gdzie każda próbka jest analizowana w kontekście poprzednich, a stan ukryty sieci przechowuje krótkotrwałą pamięć. W warstwach kodujących i dekodujących także zastosowano dropout. Ze względu na znaczny koszt obliczeniowy trenowanie sieci przeprowadzono na ograniczonej próbce 200000 próbek. Dane zostały przekształcone do sekwencji 10 próbek w pamięci, które tworzyły sekwencje wejściowe do treningu autoenkodera LSTM. 
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_04b_curves_LSTM_AE.png}
 		\caption{Krzywe uczenia modelu sieci neuronowej w metodzie rekurencyjnej sieci neuronowej}
@@ -1072,14 +1072,14 @@
 	
 	\subsection{Podsumowanie metod uczenia głębokiego}
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_04b_comparison.png}
 		\caption{Zestawienie skuteczności architektur opartych na głębokich sieciach neuronowych.}
 		\label{fig:04b-comparison}
 	\end{figure}
 	
-	\begin{figure}[H]
+	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_04b_heatmap.png}
 		\caption{ Porównanie parametrów ewaluacyjnych architektur DL.}
@@ -1167,7 +1167,7 @@ Analiza potwierdziła stabilność większości wyników. Dla poszczególnych me
 
 W ramach testów sprawdzono 91 par metod, z których 90 miało istotność statystyczną po korekcie Holma ($p < 0{,}05$). Jedyną konfiguracją, która okazała się nieistotna pod względem statystycznym, była para IQR – Z-Score Mod, gdzie ($\Delta\text{F1} = -0{,}0001$, z kolei $p_\text{Holm} = 0{,}788$). W momencie, w którym cechy lokalne wyznaczone, przez mechanizm okna kroczącego są już wycentrowane, zastosowanie MAD nie daje dodatkowej korzyści. Porównania metod z różnych klas, czyli statystyczne i ML, ML i DL itd., są istotne pod względem statystycznym, co daje potwierdzenie, że prymat metod głębokiego uczenia, z wyłączeniem LSTM, nad resztą nie jest wynikiem przypadku. Wszystkie pary wewnątrz grupy metod głębokiego uczenia są istotne, wliczając parę najlepszych metod, czyli Dense + Dropout i CNN-1D, w których ($\Delta\text{F1} = 0{,}0177$, $p_\text{Holm} = 0{,}018$). Różnica między nimi jest realna statystycznie, pomimo tego, że wartość bezwzględna jest względnie niska. Wybrane kluczowe porównania zostały ukazane w tabeli \ref{tab:pary_kluczowe}. 
 
-\begin{table}[H]
+\begin{table}%[H]
 	\centering
 	\caption{Wybrane kluczowe porównania parami -- bootstrapowy
 		test różnicy F1 z~korektą Holma ($\alpha=0{,}05$).}

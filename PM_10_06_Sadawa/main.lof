@@ -9,6 +9,8 @@
 \addvspace {10\p@ }
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
 \addvspace {10\p@ }
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
@@ -37,19 +39,19 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Wpływ parametru contamination na metryki detekcji w algorytmie Isolation Forest}}{25}{figure.caption.24}%
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Macierz korelacji metryk z parametrem contamination(WIP) w algorytmie Isolation Forest}}{25}{figure.caption.25}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Wpływ liczby sąsiadów na metryki detekcji w algorytmie Local Outlier Factor}}{26}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Macierz korelacji metryk z parametrem contamination(WIP) w algorytmie Local Outlier Factor}}{27}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Wpływ górnej granicy błędu na metryki decyzji w algorytmie One-Class SVM}}{28}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Macierz korelacji metryk z parametrem contamination(WIP) w algorytmie Local Outlier Factor}}{26}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Wpływ górnej granicy błędu na metryki decyzji w algorytmie One-Class SVM}}{27}{figure.caption.28}%
 \contentsline {figure}{\numberline {4.13}{\ignorespaces Wpływ liczby klastrów na metryki detekcji w algorytmie K-Means}}{28}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Macierz korelacji metryk z liczbą klastrów w algorytmie K-Means}}{29}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Porównanie metryk uzyskanych przez metody uczenia maszynowego z pierwszym progiem}}{30}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Krzywe uczenia modelu sieci neuronowej w metodzie gęstej sieci neuronowej}}{31}{figure.caption.32}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Krzywe uczenia modelu sieci neuronowej w metodzie gęstej sieci neuronowej z droputem}}{32}{figure.caption.33}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Krzywe uczenia modelu sieci neuronowej w metodzie konwolucyjnej sieci neuronowej}}{33}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Krzywe uczenia modelu sieci neuronowej w metodzie rekurencyjnej sieci neuronowej}}{34}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Zestawienie skuteczności architektur opartych na głębokich sieciach neuronowych.}}{35}{figure.caption.36}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Porównanie parametrów ewaluacyjnych architektur DL.}}{35}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Zależność F1 od czasu wykonywania eksperymentu}}{40}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Zależność F1 od wykorzystanej pamięci przez metodę}}{41}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Macierz korelacji metryk z liczbą klastrów w algorytmie K-Means}}{28}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Porównanie metryk uzyskanych przez metody uczenia maszynowego z pierwszym progiem}}{29}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Krzywe uczenia modelu sieci neuronowej w metodzie gęstej sieci neuronowej}}{30}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Krzywe uczenia modelu sieci neuronowej w metodzie gęstej sieci neuronowej z droputem}}{31}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Krzywe uczenia modelu sieci neuronowej w metodzie konwolucyjnej sieci neuronowej}}{32}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Krzywe uczenia modelu sieci neuronowej w metodzie rekurencyjnej sieci neuronowej}}{33}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Zestawienie skuteczności architektur opartych na głębokich sieciach neuronowych.}}{34}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Porównanie parametrów ewaluacyjnych architektur DL.}}{34}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Zależność F1 od czasu wykonywania eksperymentu}}{39}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Zależność F1 od wykorzystanej pamięci przez metodę}}{40}{figure.caption.41}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

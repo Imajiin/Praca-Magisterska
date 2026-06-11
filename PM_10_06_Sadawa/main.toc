@@ -7,7 +7,7 @@
 \babel@toc {polish}{}\relax 
 \thispagestyle {empty}
 \contentsline {chapter}{\numberline {1}Wstęp}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Zagadnienia teoretyczne}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {2}Detekcja anomalii w szeregach czasowych}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Szeregi czasowe i anomalie}{3}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Definicja szeregu czasowego}{4}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Rodzaje anomalii}{4}{subsection.2.1.2}%
@@ -28,7 +28,9 @@
 \contentsline {section}{\numberline {2.5}Miary oceny jakości detekcji}{4}{section.2.5}%
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\contentsline {subsection}{\numberline {2.5.1}Precyzja (Precision)}{5}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.1}Precyzja}{5}{subsection.2.5.1}%
+\babel@toc {british}{}\relax 
+\babel@toc {polish}{}\relax 
 \contentsline {subsection}{\numberline {2.5.2}Czułość (Recall)}{5}{subsection.2.5.2}%
 \contentsline {subsection}{\numberline {2.5.3}F1-Score}{5}{subsection.2.5.3}%
 \contentsline {chapter}{\numberline {3}Metodyka eksperymentów}{7}{chapter.3}%
@@ -36,7 +38,7 @@
 \babel@toc {polish}{}\relax 
 \contentsline {section}{\numberline {3.1}Zbiór danych}{8}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Charakterystyka i podział 80/20}{8}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Balans klas i rozkład anomalii}{10}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.2}Balans klas i rozkład anomalii}{11}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Środowisko i implementacja}{12}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Preprocessing i inżynieria cech}{13}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Dobór okna kroczącego}{14}{section.3.4}%
@@ -58,24 +60,24 @@
 \contentsline {subsection}{\numberline {4.2.5}EWMA}{23}{subsection.4.2.5}%
 \contentsline {subsection}{\numberline {4.2.6}Podsumowanie wyników metod statystycznych}{24}{subsection.4.2.6}%
 \contentsline {section}{\numberline {4.3}Wyniki metod uczenia maszynowego}{24}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Isolation Forest}{25}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.1}Isolation Forest}{24}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}Local Outlier Factor}{26}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}One-Class SVM}{27}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}K-Means}{28}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Podsumowanie wyników metod uczenia maszynowego}{30}{subsection.4.3.5}%
-\contentsline {section}{\numberline {4.4}Wyniki metod głębokiego uczenia i krzywe uczenia}{30}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Dense Autoencoder}{31}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Dense Autoencoder z mechanizmem Dropout}{32}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.3.5}Podsumowanie wyników metod uczenia maszynowego}{29}{subsection.4.3.5}%
+\contentsline {section}{\numberline {4.4}Wyniki metod głębokiego uczenia i krzywe uczenia}{29}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Dense Autoencoder}{30}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Dense Autoencoder z mechanizmem Dropout}{31}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}CNN-1D Autoencoder}{32}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}LSTM Autoencoder}{33}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Podsumowanie metod uczenia głębokiego}{35}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Porównanie metod}{36}{section.4.5}%
+\contentsline {subsection}{\numberline {4.4.4}LSTM Autoencoder}{32}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}Podsumowanie metod uczenia głębokiego}{33}{subsection.4.4.5}%
+\contentsline {section}{\numberline {4.5}Porównanie metod}{35}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Testy statystyczne}{36}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Metodologia}{37}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Przedziały ufności}{37}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.1}Metodologia}{36}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Przedziały ufności}{36}{subsection.4.6.2}%
 \contentsline {subsection}{\numberline {4.6.3}Testy różnicy}{37}{subsection.4.6.3}%
 \contentsline {subsection}{\numberline {4.6.4}Obserwacje}{38}{subsection.4.6.4}%
-\contentsline {section}{\numberline {4.7}Koszt obliczeniowy metod}{40}{section.4.7}%
+\contentsline {section}{\numberline {4.7}Koszt obliczeniowy metod}{39}{section.4.7}%
 \contentsline {chapter}{\numberline {5}Podsumowanie}{43}{chapter.5}%
 \contentsline {chapter}{Bibliografia}{45}{section*.42}%
 \contentsline {chapter}{Dokumentacja techniczna}{49}{appendix*.44}%

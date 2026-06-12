@@ -1,0 +1,75 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: biblatex.bst
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: main-blx.bib
+Database file #2: biblio.bib
+Repeated entry---line 255 of file biblio.bib
+ : @book{chandola2009anomaly
+ :                          ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "biblatex-control"
+Warning--I didn't find a database entry for "iglewicz1993how"
+Biblatex version: 3.21
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+You've used 29 entries,
+            6402 wiz_defined-function locations,
+            1387 strings with 14660 characters,
+and the built_in function-call counts, 292365 in all, are:
+= -- 24831
+> -- 4240
+< -- 998
++ -- 8974
+- -- 1782
+* -- 21690
+:= -- 34651
+add.period$ -- 0
+call.type$ -- 29
+change.case$ -- 478
+chr.to.int$ -- 0
+cite$ -- 58
+duplicate$ -- 29252
+empty$ -- 24362
+format.name$ -- 2588
+if$ -- 58567
+int.to.chr$ -- 0
+int.to.str$ -- 78
+missing$ -- 0
+newline$ -- 1075
+num.names$ -- 1417
+pop$ -- 11422
+preamble$ -- 1
+purify$ -- 769
+quote$ -- 0
+skip$ -- 5686
+stack$ -- 0
+substring$ -- 47839
+swap$ -- 4733
+text.length$ -- 843
+text.prefix$ -- 1
+top$ -- 1
+type$ -- 986
+warning$ -- 0
+while$ -- 3968
+width$ -- 0
+write$ -- 1046
+(There was 1 error message)

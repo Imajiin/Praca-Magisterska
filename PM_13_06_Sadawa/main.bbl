@@ -1,0 +1,1207 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global/global}
+  \entry{aggarwal2016introduction}{incollection}{}{}
+    \name{author}{1}{}{%
+      {{hash=ACC}{%
+         family={Aggarwal},
+         familyi={A\bibinitperiod},
+         given={Charu\bibnamedelima C},
+         giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{ACC1}
+    \strng{fullhash}{ACC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{Outlier analysis}
+    \field{pages}{1\bibrangedash 34}
+    \field{title}{An introduction to outlier analysis}
+    \field{year}{2016}
+  \endentry
+
+  \entry{cao2016hybrid}{inproceedings}{}{}
+    \name{author}{3}{}{%
+      {{hash=CVL}{%
+         family={Cao},
+         familyi={C\bibinitperiod},
+         given={Van\bibnamedelima Loi},
+         giveni={V\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Nicolau},
+         familyi={N\bibinitperiod},
+         given={Miguel},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={McDermott},
+         familyi={M\bibinitperiod},
+         given={James},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{CVLNMMJ1}
+    \strng{fullhash}{CVLNMMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{International conference on parallel problem solving from
+  nature}
+    \field{pages}{717\bibrangedash 726}
+    \field{title}{A hybrid autoencoder and density estimation model for anomaly
+  detection}
+    \field{year}{2016}
+  \endentry
+
+  \entry{chandola2009anomaly2}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=CV}{%
+         family={Chandola},
+         familyi={C\bibinitperiod},
+         given={Varun},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {University of Minnesota}%
+    }
+    \strng{namehash}{CV1}
+    \strng{fullhash}{CV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Anomaly detection for symbolic sequences and time series
+  data}
+    \field{year}{2009}
+  \endentry
+
+  \entry{chandola2009anomaly}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=CV}{%
+         family={Chandola},
+         familyi={C\bibinitperiod},
+         given={Varun},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Banerjee},
+         familyi={B\bibinitperiod},
+         given={Arindam},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={Vipin},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM New York, NY, USA}%
+    }
+    \strng{namehash}{CVBAKV1}
+    \strng{fullhash}{CVBAKV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{3}
+    \field{pages}{1\bibrangedash 58}
+    \field{title}{Anomaly detection: A survey}
+    \field{volume}{41}
+    \field{journaltitle}{ACM computing surveys (CSUR)}
+    \field{year}{2009}
+  \endentry
+
+  \entry{cheng2019outlier}{inproceedings}{}{}
+    \name{author}{3}{}{%
+      {{hash=CZ}{%
+         family={Cheng},
+         familyi={C\bibinitperiod},
+         given={Zhangyu},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=ZC}{%
+         family={Zou},
+         familyi={Z\bibinitperiod},
+         given={Chengming},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=DJ}{%
+         family={Dong},
+         familyi={D\bibinitperiod},
+         given={Jianwei},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CZZCDJ1}
+    \strng{fullhash}{CZZCDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{Proceedings of the conference on research in adaptive and
+  convergent systems}
+    \field{pages}{161\bibrangedash 168}
+    \field{title}{Outlier detection using isolation forest and local outlier
+  factor}
+    \field{year}{2019}
+  \endentry
+
+  \entry{vcisar2011optimization}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=CP}{%
+         family={{\v{C}}isar},
+         familyi={{\v{C}}\bibinitperiod},
+         given={Petar},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=CSM}{%
+         family={{\v{C}}isar},
+         familyi={{\v{C}}\bibinitperiod},
+         given={Sanja\bibnamedelima Maravi{\'c}},
+         giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CPCSM1}
+    \strng{fullhash}{CPCSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{5}
+    \field{pages}{73\bibrangedash 87}
+    \field{title}{Optimization methods of EWMA statistics}
+    \field{volume}{8}
+    \field{journaltitle}{Acta Polytechnica Hungarica}
+    \field{year}{2011}
+  \endentry
+
+  \entry{curtis2016mystery}{article}{}{}
+    \name{author}{4}{}{%
+      {{hash=CAE}{%
+         family={Curtis},
+         familyi={C\bibinitperiod},
+         given={Alexander\bibnamedelima E},
+         giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=STA}{%
+         family={Smith},
+         familyi={S\bibinitperiod},
+         given={Tanya\bibnamedelima A},
+         giveni={T\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=ZBA}{%
+         family={Ziganshin},
+         familyi={Z\bibinitperiod},
+         given={Bulat\bibnamedelima A},
+         giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=EJA}{%
+         family={Elefteriades},
+         familyi={E\bibinitperiod},
+         given={John\bibnamedelima A},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Thieme Medical Publishers}%
+    }
+    \strng{namehash}{CAE+1}
+    \strng{fullhash}{CAESTAZBAEJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{04}
+    \field{pages}{124\bibrangedash 130}
+    \field{title}{The mystery of the Z-score}
+    \field{volume}{4}
+    \field{journaltitle}{Aorta}
+    \field{year}{2016}
+  \endentry
+
+  \entry{di2018using}{inproceedings}{}{}
+    \name{author}{3}{}{%
+      {{hash=DH}{%
+         family={Di},
+         familyi={D\bibinitperiod},
+         given={Haibin},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=WZ}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Zhen},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=AG}{%
+         family={AlRegib},
+         familyi={A\bibinitperiod},
+         given={Ghassan},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {SEG}%
+    }
+    \strng{namehash}{DHWZAG1}
+    \strng{fullhash}{DHWZAG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{SEG International Exposition and Annual Meeting}
+    \field{pages}{SEG\bibrangedash 2018}
+    \field{title}{Why using CNN for seismic interpretation? An investigation}
+    \field{year}{2018}
+  \endentry
+
+  \entry{dudek2023std}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=DG}{%
+         family={Dudek},
+         familyi={D\bibinitperiod},
+         given={Grzegorz},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{DG1}
+    \strng{fullhash}{DG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{10}
+    \field{pages}{10339\bibrangedash 10350}
+    \field{title}{STD: a seasonal-trend-dispersion decomposition of time
+  series}
+    \field{volume}{35}
+    \field{journaltitle}{IEEE Transactions on Knowledge and Data Engineering}
+    \field{year}{2023}
+  \endentry
+
+  \entry{hejazi2013one}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=HM}{%
+         family={Hejazi},
+         familyi={H\bibinitperiod},
+         given={Maryamsadat},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SYP}{%
+         family={Singh},
+         familyi={S\bibinitperiod},
+         given={Yashwant\bibnamedelima Prasad},
+         giveni={Y\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{HMSYP1}
+    \strng{fullhash}{HMSYP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{5}
+    \field{pages}{351\bibrangedash 366}
+    \field{title}{One-class support vector machines approach to anomaly
+  detection}
+    \field{volume}{27}
+    \field{journaltitle}{Applied Artificial Intelligence}
+    \field{year}{2013}
+  \endentry
+
+  \entry{hyndman2018forecasting}{book}{}{}
+    \name{author}{2}{}{%
+      {{hash=HRJ}{%
+         family={Hyndman},
+         familyi={H\bibinitperiod},
+         given={Rob\bibnamedelima J},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=AG}{%
+         family={Athanasopoulos},
+         familyi={A\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {OTexts}%
+    }
+    \strng{namehash}{HRJAG1}
+    \strng{fullhash}{HRJAG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Forecasting: principles and practice}
+    \field{year}{2018}
+  \endentry
+
+  \entry{iglewicz1993volume}{book}{}{}
+    \name{author}{2}{}{%
+      {{hash=IB}{%
+         family={Iglewicz},
+         familyi={I\bibinitperiod},
+         given={Boris},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=HDC}{%
+         family={Hoaglin},
+         familyi={H\bibinitperiod},
+         given={David\bibnamedelima C},
+         giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Quality Press}%
+    }
+    \strng{namehash}{IBHDC1}
+    \strng{fullhash}{IBHDC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{Volume 16: how to detect and handle outliers}
+    \field{year}{1993}
+  \endentry
+
+  \entry{kang2005q}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=KSJ}{%
+         family={Kang},
+         familyi={K\bibinitperiod},
+         given={Sung\bibnamedelima Jin},
+         giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Myoungjae},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier}%
+    }
+    \strng{namehash}{KSJLM1}
+    \strng{fullhash}{KSJLM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{10}
+    \field{pages}{1785\bibrangedash 1806}
+    \field{title}{Q-convergence with interquartile ranges}
+    \field{volume}{29}
+    \field{journaltitle}{Journal of Economic Dynamics and Control}
+    \field{year}{2005}
+  \endentry
+
+  \entry{kotowski2024esaadb}{article}{}{}
+    \name{author}{11}{}{%
+      {{hash=KK}{%
+         family={Kotowski},
+         familyi={K\bibinitperiod},
+         given={Krzysztof},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=HC}{%
+         family={Haskamp},
+         familyi={H\bibinitperiod},
+         given={Christoph},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=AJ}{%
+         family={Andrzejewski},
+         familyi={A\bibinitperiod},
+         given={Jacek},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RB}{%
+         family={Ruszczak},
+         familyi={R\bibinitperiod},
+         given={Bogdan},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=NJ}{%
+         family={Nalepa},
+         familyi={N\bibinitperiod},
+         given={Jakub},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LD}{%
+         family={Lakey},
+         familyi={L\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CP}{%
+         family={Collins},
+         familyi={C\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kolmas},
+         familyi={K\bibinitperiod},
+         given={Aybike},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Bartesaghi},
+         familyi={B\bibinitperiod},
+         given={Mauro},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MHJ}{%
+         family={Martínez-Heras},
+         familyi={M\bibinithyphendelim H\bibinitperiod},
+         given={Jose},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=DCG}{%
+         family={De\bibnamedelima Canio},
+         familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+         given={Gabriele},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KK+1}
+    \strng{fullhash}{KKHCAJRBNJLDCPKABMMHJDCG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{{European Space Agency Benchmark for Anomaly Detection in
+  Satellite Telemetry}}
+    \field{journaltitle}{arXiv preprint arXiv:2406.17826}
+    \field{year}{2024}
+  \endentry
+
+  \entry{kufel2023machine}{article}{}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{10}{}{%
+      {{hash=KJ}{%
+         family={Kufel},
+         familyi={K\bibinitperiod},
+         given={Jakub},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BLK}{%
+         family={Bargie{\l}-{\L}{\k{a}}czek},
+         familyi={B\bibinithyphendelim {\L}\bibinitperiod},
+         given={Katarzyna},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kocot},
+         familyi={K\bibinitperiod},
+         given={Szymon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Ko{\'z}lik},
+         familyi={K\bibinitperiod},
+         given={Maciej},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BW}{%
+         family={Bartnikowska},
+         familyi={B\bibinitperiod},
+         given={Wiktoria},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=JM}{%
+         family={Janik},
+         familyi={J\bibinitperiod},
+         given={Micha{\l}},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CL}{%
+         family={Czogalik},
+         familyi={C\bibinitperiod},
+         given={{\L}ukasz},
+         giveni={{\L}\bibinitperiod},
+      }}%
+      {{hash=DP}{%
+         family={Dudek},
+         familyi={D\bibinitperiod},
+         given={Piotr},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Magiera},
+         familyi={M\bibinitperiod},
+         given={Miko{\l}aj},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LA}{%
+         family={Lis},
+         familyi={L\bibinitperiod},
+         given={Anna},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MDPI}%
+    }
+    \strng{namehash}{KJ+1}
+    \strng{fullhash}{KJBLKKSKMBWJMCLDPMMLA+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{15}
+    \field{pages}{2582}
+    \field{title}{What is machine learning, artificial neural networks and deep
+  learning?—Examples of practical applications in medicine}
+    \field{volume}{13}
+    \field{journaltitle}{Diagnostics}
+    \field{year}{2023}
+  \endentry
+
+  \entry{kwon2018empirical}{inproceedings}{}{}
+    \name{author}{5}{}{%
+      {{hash=KD}{%
+         family={Kwon},
+         familyi={K\bibinitperiod},
+         given={Donghwoon},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=NK}{%
+         family={Natarajan},
+         familyi={N\bibinitperiod},
+         given={Kathiravan},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SSC}{%
+         family={Suh},
+         familyi={S\bibinitperiod},
+         given={Sang\bibnamedelima C},
+         giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=KH}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Hyunjoo},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Jinoh},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{KD+1}
+    \strng{fullhash}{KDNKSSCKHKJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{2018 IEEE 38th international conference on distributed
+  computing systems (ICDCS)}
+    \field{pages}{1595\bibrangedash 1598}
+    \field{title}{An empirical study on network anomaly detection using
+  convolutional neural networks}
+    \field{year}{2018}
+  \endentry
+
+  \entry{lenart2024comparison}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=LK}{%
+         family={Lenart},
+         familyi={L\bibinitperiod},
+         given={Klaudia},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Uniwersytet Ekonomiczny we Wroc{\l}awiu. Wydawnictwo Uniwersytetu
+  Ekonomicznego~…}%
+    }
+    \strng{namehash}{LK1}
+    \strng{fullhash}{LK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{number}{4}
+    \field{pages}{23\bibrangedash 31}
+    \field{title}{Comparison of machine learning and statistical approaches of
+  detecting anomalies using a simulation study}
+    \field{volume}{28}
+    \field{journaltitle}{Econometrics. Ekonometria. Advances in Applied Data
+  Analytics}
+    \field{year}{2024}
+  \endentry
+
+  \entry{lima2010anomaly}{inproceedings}{}{}
+    \name{author}{6}{}{%
+      {{hash=LMF}{%
+         family={Lima},
+         familyi={L\bibinitperiod},
+         given={Mois{\'e}s\bibnamedelima F},
+         giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=ZBB}{%
+         family={Zarpelao},
+         familyi={Z\bibinitperiod},
+         given={Bruno\bibnamedelima B},
+         giveni={B\bibinitperiod\bibinitdelim B\bibinitperiod},
+      }}%
+      {{hash=SLD}{%
+         family={Sampaio},
+         familyi={S\bibinitperiod},
+         given={Lucas\bibnamedelima DH},
+         giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=RJJ}{%
+         family={Rodrigues},
+         familyi={R\bibinitperiod},
+         given={Joel\bibnamedelima JPC},
+         giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=AT}{%
+         family={Abrao},
+         familyi={A\bibinitperiod},
+         given={Taufik},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=PML}{%
+         family={Proen{\c{c}}a},
+         familyi={P\bibinitperiod},
+         given={Mario\bibnamedelima Lemes},
+         giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{LMF+1}
+    \strng{fullhash}{LMFZBBSLDRJJATPML1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{SoftCOM 2010, 18th International Conference on Software,
+  Telecommunications and Computer Networks}
+    \field{pages}{305\bibrangedash 309}
+    \field{title}{Anomaly detection using baseline and k-means clustering}
+    \field{year}{2010}
+  \endentry
+
+  \entry{liu2008isolation}{inproceedings}{}{}
+    \name{author}{3}{}{%
+      {{hash=LFT}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Fei\bibnamedelima Tony},
+         giveni={F\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=TKM}{%
+         family={Ting},
+         familyi={T\bibinitperiod},
+         given={Kai\bibnamedelima Ming},
+         giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=ZZH}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Zhi-Hua},
+         giveni={Z\bibinithyphendelim H\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{LFTTKMZZH1}
+    \strng{fullhash}{LFTTKMZZH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{2008 eighth ieee international conference on data mining}
+    \field{pages}{413\bibrangedash 422}
+    \field{title}{Isolation forest}
+    \field{year}{2008}
+  \endentry
+
+  \entry{liu2018dense}{inproceedings}{}{}
+    \name{author}{6}{}{%
+      {{hash=LH}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Hong},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Mingbao},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZS}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Shengchuan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WY}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Yongjian},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=HF}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Feiyue},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=JR}{%
+         family={Ji},
+         familyi={J\bibinitperiod},
+         given={Rongrong},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LH+1}
+    \strng{fullhash}{LHLMZSWYHFJR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{booktitle}{Proceedings of the 26th ACM international conference on
+  multimedia}
+    \field{pages}{1589\bibrangedash 1597}
+    \field{title}{Dense auto-encoder hashing for robust cross-modality
+  retrieval}
+    \field{year}{2018}
+  \endentry
+
+  \entry{migdadi2019robust}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=MA}{%
+         family={Migdadi},
+         familyi={M\bibinitperiod},
+         given={Ahmed},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KBG}{%
+         family={Kibria},
+         familyi={K\bibinitperiod},
+         given={BM\bibnamedelima Golam},
+         giveni={B\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MAKBG1}
+    \strng{fullhash}{MAKBG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{3}
+    \field{pages}{641\bibrangedash 654}
+    \field{title}{ROBUST ALTERNATIVES TO THE TUKEY'S CONTROL CHART FOR THE
+  MONITORING OF THE STATISTICAL PROCESS MEAN}
+    \field{volume}{13}
+    \field{journaltitle}{International Journal for Quality Research}
+    \field{year}{2019}
+  \endentry
+
+  \entry{munz2007traffic}{inproceedings}{}{}
+    \name{author}{3}{}{%
+      {{hash=MG}{%
+         family={M{\"u}nz},
+         familyi={M\bibinitperiod},
+         given={Gerhard},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Sa},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CG}{%
+         family={Carle},
+         familyi={C\bibinitperiod},
+         given={Georg},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MGLSCG1}
+    \strng{fullhash}{MGLSCG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{booktitle}{Gi/itg workshop mmbnet}
+    \field{number}{9}
+    \field{pages}{1159\bibrangedash 35305}
+    \field{title}{Traffic anomaly detection using k-means clustering}
+    \field{volume}{7}
+    \field{year}{2007}
+  \endentry
+
+  \entry{naqvi2017time}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=NSNZ}{%
+         family={Naqvi},
+         familyi={N\bibinitperiod},
+         given={Syeda Noor\bibnamedelima Zehra},
+         giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim
+  Z\bibinitperiod},
+      }}%
+      {{hash=YS}{%
+         family={Yfantidou},
+         familyi={Y\bibinitperiod},
+         given={Sofia},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=ZE}{%
+         family={Zim{\'a}nyi},
+         familyi={Z\bibinitperiod},
+         given={Esteban},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NSNZYSZE1}
+    \strng{fullhash}{NSNZYSZE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{number}{1-44}
+    \field{pages}{65}
+    \field{title}{Time series databases and influxdb}
+    \field{volume}{12}
+    \field{journaltitle}{Studienarbeit, Universit{\'e} Libre de Bruxelles}
+    \field{year}{2017}
+  \endentry
+
+  \entry{nirthika2022pooling}{article}{}{}
+    \name{author}{4}{}{%
+      {{hash=NR}{%
+         family={Nirthika},
+         familyi={N\bibinitperiod},
+         given={Rajendran},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Manivannan},
+         familyi={M\bibinitperiod},
+         given={Siyamalan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Ramanan},
+         familyi={R\bibinitperiod},
+         given={Amirthalingam},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Ruixuan},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{NR+1}
+    \strng{fullhash}{NRMSRAWR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{number}{7}
+    \field{pages}{5321\bibrangedash 5347}
+    \field{title}{Pooling in convolutional neural networks for medical image
+  analysis: a survey and an empirical study}
+    \field{volume}{34}
+    \field{journaltitle}{Neural Computing and Applications}
+    \field{year}{2022}
+  \endentry
+
+  \entry{noh2021analysis}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=NSH}{%
+         family={Noh},
+         familyi={N\bibinitperiod},
+         given={Seol-Hyun},
+         giveni={S\bibinithyphendelim H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MDPI}%
+    }
+    \strng{namehash}{NSH1}
+    \strng{fullhash}{NSH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{number}{11}
+    \field{pages}{442}
+    \field{title}{Analysis of gradient vanishing of RNNs and performance
+  comparison}
+    \field{volume}{12}
+    \field{journaltitle}{Information}
+    \field{year}{2021}
+  \endentry
+
+  \entry{rana2022hybrid}{article}{}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{2}{}{%
+      {{hash=RM}{%
+         family={Rana},
+         familyi={R\bibinitperiod},
+         given={Muhammad},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LLK}{%
+         family={Lok},
+         familyi={L\bibinitperiod},
+         given={Lai\bibnamedelima Kai},
+         giveni={L\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RMLLK+1}
+    \strng{fullhash}{RMLLK+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Hybrid machine learning approach for anomaly detection}
+    \field{journaltitle}{Indonesian Journal of Electrical Engineering and
+  Computer Science}
+    \field{year}{2022}
+  \endentry
+
+  \entry{riaz2011improving}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=RM}{%
+         family={Riaz},
+         familyi={R\bibinitperiod},
+         given={Muhammad},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=AN}{%
+         family={Abbas},
+         familyi={A\bibinitperiod},
+         given={Nasir},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=DRJ}{%
+         family={Does},
+         familyi={D\bibinitperiod},
+         given={Ronald\bibnamedelima JMM},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley Online Library}%
+    }
+    \strng{namehash}{RMANDRJ1}
+    \strng{fullhash}{RMANDRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{number}{4}
+    \field{pages}{415\bibrangedash 424}
+    \field{title}{Improving the performance of CUSUM charts}
+    \field{volume}{27}
+    \field{journaltitle}{Quality and Reliability Engineering International}
+    \field{year}{2011}
+  \endentry
+
+  \entry{sathyanarayanan2024confusion}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=SS}{%
+         family={Sathyanarayanan},
+         familyi={S\bibinitperiod},
+         given={S},
+         giveni={S},
+      }}%
+      {{hash=TBR}{%
+         family={Tantri},
+         familyi={T\bibinitperiod},
+         given={B\bibnamedelima Roopashri},
+         giveni={B\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SSTBR1}
+    \strng{fullhash}{SSTBR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{4S}
+    \field{pages}{4023\bibrangedash 4031}
+    \field{title}{Confusion matrix-based performance evaluation metrics}
+    \field{volume}{27}
+    \field{journaltitle}{African Journal of Biomedical Research}
+    \field{year}{2024}
+  \endentry
+
+  \entry{xu2019multitask}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=XX}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Xinghan},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=YM}{%
+         family={Yoneda},
+         familyi={Y\bibinitperiod},
+         given={Minoru},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{XXYM1}
+    \strng{fullhash}{XXYM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{X}
+    \field{sortinithash}{X}
+    \field{number}{5}
+    \field{pages}{2577\bibrangedash 2586}
+    \field{title}{Multitask air-quality prediction based on LSTM-autoencoder
+  model}
+    \field{volume}{51}
+    \field{journaltitle}{IEEE transactions on cybernetics}
+    \field{year}{2019}
+  \endentry
+
+  \entry{yang2024confusion}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=YS}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Shengping},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BG}{%
+         family={Berdine},
+         familyi={B\bibinitperiod},
+         given={Gilbert},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YSBG1}
+    \strng{fullhash}{YSBG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \verb{doi}
+    \verb 10.12746/swrccc.v12i53.1391
+    \endverb
+    \field{number}{53}
+    \field{pages}{75\bibrangedash 79}
+    \field{title}{Confusion matrix}
+    \field{volume}{12}
+    \field{journaltitle}{The Southwest Respiratory and Critical Care
+  Chronicles}
+    \field{year}{2024}
+  \endentry
+
+  \entry{zamanzadeh2024deep}{article}{}{}
+    \name{author}{5}{}{%
+      {{hash=ZDZ}{%
+         family={Zamanzadeh\bibnamedelima Darban},
+         familyi={Z\bibinitperiod\bibinitdelim D\bibinitperiod},
+         given={Zahra},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=WGI}{%
+         family={Webb},
+         familyi={W\bibinitperiod},
+         given={Geoffrey\bibnamedelima I},
+         giveni={G\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Pan},
+         familyi={P\bibinitperiod},
+         given={Shirui},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=AC}{%
+         family={Aggarwal},
+         familyi={A\bibinitperiod},
+         given={Charu},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Salehi},
+         familyi={S\bibinitperiod},
+         given={Mahsa},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ACM New York, NY}%
+    }
+    \strng{namehash}{ZDZ+1}
+    \strng{fullhash}{ZDZWGIPSACSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{number}{1}
+    \field{pages}{1\bibrangedash 42}
+    \field{title}{Deep learning for time series anomaly detection: A survey}
+    \field{volume}{57}
+    \field{journaltitle}{ACM Computing Surveys}
+    \field{year}{2024}
+  \endentry
+\enddatalist
+\endinput

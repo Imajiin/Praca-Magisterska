@@ -544,7 +544,7 @@
 
 	
 	
-	\chapter{Zagadnienia teoretyczne}
+	\chapter{Detekcja anomalii w szeregach czasowych}
 	\label{cha:teoria}
 	W idealnym świecie w trakcie wykonywania dużych ilości pomiarów w dużym oknie czasowym, osoba nadzorująca pomiar może mieć absolutną pewność, że nie zdarzy się nic co nie powinno. Wszystkie mierzone wartości zachowują się zgodnie z zaplanowanym scenariuszem pomiarowym. Operator ma całkowite zaufanie do instrumentów pomiarowych, co umożliwia sterowanie procesem bez obaw o nagłe błędy zaburzające układ danych w czasie rzeczywistym, co przekłada się na całościową jakość próbki badawczej w trakcie eksperymentu. Przykładem mogą być precyzyjne badania w systemach przemysłowych, w których stabilne wartości temperatury, czy ciśnienia umożliwiają pożądaną jakość produkcji. Wiarygodność zgromadzonych danych jest kluczowym aspektem w środowiskach zarówno przemysłowych jak i naukowych. 
 	
@@ -575,10 +575,11 @@
 	W przypadku, kiedy dana instancja danych jest anormalna w specyficznym kontekście, lecz bez niego dane są normalne, występuje anomalia kontekstowa \cite{chandola2009anomaly}. Do definicji danych używa się dwóch zestawów atrybutów. Pierwszym z nich są atrybuty kontekstowe, które mają za zadanie wykrywać kontekst danej instancji. W przypadku szeregów czasowych kontekstem jest położenie danej instancji w czasie \cite{chandola2009anomaly2}, takim jak na przykład miesiąc badania, w którym znajduje się dana wartość. Drugim z nich są atrybuty behawioralne, badające poza kontekstową naturę danej \cite{chandola2009anomaly}. Przykładowo, w prognozie pogody atrybutem kontekstowym jest temperatura w danej stacji pogodowej, która wysyła dane do centrali.
 	Kiedy istnieje segment danych które zachowują się jak anomalie w stosunku do reszty próbki badawczej, są one nazywane anomaliami kolektywnymi \cite{chandola2009anomaly}. Pojedyncze dane same w sobie nie są anomaliami, natomiast ich występowanie w segmencie danych jest już uznawane za anomalię. Przykładem takiego rodzaju jest zatrzymanie akcji serca w trakcie badania elektrokardiogramem. W danym oknie czasowym brak tętna nie zwiastuje nic, natomiast w przypadku, kiedy ta wartość pojawia się w dłuższym oknie czasu, mowa jest już o arytmii, którą trzeba poddać dodatkowym badaniu, charakteryzującym jej rodzaj \cite{chandola2009anomaly}.
 	
-	\section{Metody Statystyczne}
+	\section{Metody detekcji anomalii}
+	\subsection{Metody Statystyczne}
 	Jedną z najprostszych koncepcji wykrywania anomalii jest grupa metod statystycznych. Skupia się głównie na pomiarze wartości, które mogą potencjalnie zostać zidentyfikowane jako anomalie w trakcie badania \cite{lenart2024comparison}, z wykorzystaniem progów wyznaczonych na podstawie właściwości rozkładu danych. Jedną z głównych zalet takich rozwiązań jest prostota w implementacji i interpretacji wyników. Jednak w zestawieniu z bardziej złożonymi anomaliami kontekstowymi metody te napotykają trudności i ogranicza to ich użyteczność. 
 	
-	\subsection{IQR Baseline}
+	\subsubsection{IQR Baseline}
 	Metoda rozstępu międzykwartylowego (ang. \english{Interquartile Range}, IQR) jest często używanym narzędziem do mierzenia stopnia rozłożenia wartości w rozkładzie \cite{kang2005q}. Jest to jedna z najpopularniejszych i najodporniejszych miar rozproszenia. W dziedzinie wykrywania anomalii algorytm bazuje na podziale zbioru danych badawczych na kwartyle. Sam rozstęp jest definiowany jako różnica między trzecim kwartylem, oznaczającym 75. percentyl, a pierwszym, który wskazuje 25. percentyl danych. Siła tej metody tkwi w prostocie i w tym, że w porównaniu do innej popularnej miary, jaką jest odchylenie standardowe nie jest na tyle podatna na zniekształcenia w wyniku obecności wartości skrajnych. 
 	Bardzo intuicyjną graficzną reprezentacją IQR jest wykres pudełkowy  (ang.\english{boxplot}). W nim centralne pudełko ukazuje sam rozstęp międzykwartylowy. Sam proces klasyfikacji anomalii opiera się na wyznaczeniu tzw. „wąsów”, które reprezentują dolną i górną granicę klasyfikowaną jako normalność. Ograniczeniem akceptowalnych wartości jest układ równań
 	\begin{equation}
@@ -588,7 +589,7 @@
 	\end{equation}
 	 gdzie parametr $k$ to parametr strojenia, będącym mnożnikiem czułości algorytmu, który standardowo wynosi 1{,}5 \cite{migdadi2019robust}. W momencie, kiedy dana wartość znajduje się poza granicami wykresem jest klasyfikowana jako anomalia. Metoda ta bada zjawiska tylko i wyłącznie punktowo, przez co będzie miała ograniczone zdolności do wykrywania anomalii kontekstowych.
 	
-	\subsection{Z-Score}
+	\subsubsection{Z-Score}
 	Z-Score jest wskaźnikiem pierwotnie używanym do anatomicznych i fizycznych badań, takich jak pomiary elektrokardiogramem, wzrost, waga, czy ciśnienie krwi, co ma zastosowanie przy diagnozach pacjentów \cite{curtis2016mystery}. Z matematycznego punktu widzenia opisuje on jak bardzo wartość w odchyleniach standardowych leży powyżej, lub poniżej średniej w porównywalnej grupie wieku, lub rozmiarów pacjenta \cite{curtis2016mystery}.
 	Z-Score jest kalkulowany według poniższego wzoru:
 	\begin{equation}
@@ -604,7 +605,7 @@
 	\end{equation}
 	Gdzie dodaje się jeszcze współczynnik 0{,}6745, co pozwala na upodobnienie wariancji MAD do idealnego odchylenia standardowego rozkładu normalnego. Podejście to łączy prostotę interpretacji odchyleń klasycznego Z-Score z zwiększoną odpornością na zakłócenia. Twórcy metody rekomendują używanie rygorystycznych progów decyzyjnych, kwalifikując próbki, dla których wartość Z-Score  wynosi $|M_i| \ge 3{,}5$~\cite{iglewicz1993volume}. 
 	
-	\subsection{CUSUM}
+	\subsubsection{CUSUM}
 	CUSUM, czyli suma kumulacyjna jest algorytmem, który w odróżnieniu do algorytmów analizujących pojedyncze odchylenia, akumuluje na bieżąco informacje z kolejnych pomiarów dotyczące różnic od poszukiwanej wartości. Powoduje to czułość na małe zmiany średniej wartości procesu \cite{riaz2011improving}. Układ równań akumualcji, który umożliwia detekcję niechcianego wzrostu, jak i spadku sygnału badanego ma postać:
 	 \begin{align}
 	 	S_t^+ &= \max\!\bigl(0,\; S_{t-1}^+ + (x_t - \mu) - k\bigr),
@@ -619,7 +620,7 @@
 		S_t^- < h
 	\end{align}
 		
-	\subsection{EWMA}
+	\subsubsection{EWMA}
 	Alternatywnym podejściem  do uwzględnienia historii sygnału w procesie analizy szeregów czasowych kątem wykrywania anomalii jest użycie wykładniczo ważonej średniej ruchomej (ang. \english{Exponentially Weighted Moving Average}, EWMA). W przeciwieństwie do CUSUM przypisuje  starszym obserwacjom proporcjonalnie mniejszą wagę \cite{vcisar2011optimization}. Dla próbki $i$ EWMA jest definiowana poniższym wzorem:
 	\begin{equation}
 		\hat{x}_t = \alpha\, x_t + (1 - \alpha)\, \hat{x}_{t-1},
@@ -627,7 +628,7 @@
 	\end{equation}
 	gdzie modyfikowaną wartością, jest parametr wygładzania $\lambda \in (0,1]$, który dostosowuje głębokość pamięci wchodzącej do ewaluacji. Mniejsza wartość, sprawia, że model opiera się na coraz bardziej historycznych  danych, zwiększając jednocześnie wpływ powolnych dryfów. Wartości bliskie górnej granicy przybliżają naturę metody do klasycznych metod punktowych. Anomalia zostaje wykryta, gdy wartość wygładzona $Z_i$ przekroczy granicę kontrolną \cite{vcisar2011optimization}. 
 	
-	\section{Metody uczenia maszynowego}
+	\subsection{Metody uczenia maszynowego}
 	W ramach postępu technologicznego nowe systemy telemetryczne stały się bardziej złożone i ilość gromadzonych danych także się zwiększyła. Metody statystyczne z czasem w obliczu tego rozwoju stały się niewystarczające. Pomimo wysokiej skuteczności w zakresie analizy jednowymiarowej metody takie jak Z-Score, czy EWMA zaczęły docierać do granic swoich możliwości w obliczu wielowymiarowych przestrzeni danych. Rozwiązaniem problemu jest zastosowanie algorytmów uczenia maszynowego (ang. \english{Machine Learning}, ML) . Jest to część szerszego zagadnienia jakim jest sztuczna inteligencja, na którą się składa budowanie modeli zdolnych do nauki i podejmowania decyzji opartych na dostępnych danych \cite{kufel2023machine}. W dziedzinie inżynierii danych, są to jedne z najpopularniejszych narzędzi używanych obecnie przez analityków danych \cite{lenart2024comparison}. Jest to grupa metod używająca klasycznych metod analizy danych, takich jak metoda najmniejszych kwadratów, czy interpolacja wielomianowa .W kontekście wykrywania anomalii, algorytmy uczenia maszynowego, dzieli się na trzy główne kategorie, w zależności od struktury danych i ich dostępności:  
 	\begin{itemize}
 		\item \textbf{Uczenie nadzorowane} (\textit{supervised learning}): Metody z tej grupy wykorzystują zbiory danych zawierające etykiety, gdzie każda próbka ma przypisany stan docelowy. Po wyuczeniu relacji między wejściem a wyjściem, model jest w stanie dokonywać predykcji dla nowych, nieznanych wcześniej danych \cite{kufel2023machine}. Głównymi metodami w tym nurcie są klasyfikacja (np. rozpoznawanie obiektów na obrazach czy analiza grafologiczna) oraz regresja \cite{kufel2023machine}.
@@ -637,31 +638,31 @@
 		\item \textbf{Uczenie częściowo nadzorowane} (\textit{semi-supervised learning}): Jest to specyficzny wariant uczenia, szczególnie istotny w detekcji anomalii w danych sekwencyjnych. Sprowadza się do identyfikacji nietypowych sekwencji w odniesieniu do wzorcowej bazy referencyjnej. Dysponując zbiorem uczącym (zawierającym zazwyczaj tylko stany normalne) oraz zbiorem testowym, algorytm wyznacza miarę anomalii dla badanej próbki w odniesieniu do wyuczonych wzorców normalności \cite{chandola2009anomaly2}.
 	\end{itemize}
 
-	\subsection{Isolation Forest}
+	\subsubsection{Isolation Forest}
 	Algorytm Isolation Forest jest metodą uczenia maszynowego wprowadzonym przez chińskich naukowców Liu, Tinga i Zhou\cite{liu2008isolation}.  , która izoluje anomalie, poprzez wykorzystanie dwóch właściwości. Pierwszą z nich jest ich mała liczba, a druga to występowanie wartości, które różnią się od danych normalnych \cite{liu2008isolation}. Metoda ta działa poprzez budowanie struktury drzew izolacyjnych (\textit{Isolation Trees}) do danego zestawu danych, gdzie anomaliami są te wartości, które mają krótką średnią drogę w strukturze drzewa, podczas gdy dane normalne wymagają głębszych podziałów  \cite{liu2008isolation}. Algorytm Isolation Forest korzysta z mechanizmu podpróbkowania (ang. \textit{sub-sampling}), czyli losowej selekcji danych bez zastąpienia, co daje możliwość budowania drzew \cite{liu2008isolation}.  Podejście to zwiększa efektywność obliczeniową algorytmu. Dzięki złożoności czasowej w trakcie eksperymentu w wysokości $O(nt\log \psi)$, gdzie $\psi$ oznacza rozmiar podpróbkowania, $t$ oznacza ilość drzew, algorytm ten jest dobrze przystosowany do pracy z wielowymiarowymi zbiorami danych \cite{liu2008isolation}. W odniesieniu do poniższej pracy metoda jest głównym filtrującym mechanizmem redukującym ilość danych telemetrycznych, pozwalając szybko wskazywać kandydatów na anomalie.
 	
-	\subsection{Local Outlier Factor (LOF)}
+	\subsubsection{Local Outlier Factor (LOF)}
 	Metoda Local Outlier Factor, jest detektorem odstępstw opartym na lokalnej gęstości, który szuka anomalii, poprzez kalkulację punktowego odstępu danego punktu w zbiorze w danej instancji badania. W przeciwieństwie do metod, zakładających obecność anomalii w dużej odległości od pozostałych próbek w przestrzeni danych, LOF skupia się na analizowaniu lokalnego otoczenia danej próbki badawczej. Anomalia jest wykrywana na podstawie gęstości punktów znajdujących się w okolicy próbki badanej, w odniesieniu do średniej gęstości $k$ punktów sąsiednich. Im mniejsza gęstość, tym większa szansa na sklasyfikowane jej jako anomalia \cite{cheng2019outlier}. Sam algorytm ma istotne ograniczenia wynikające z wysokiej złożoności obliczeniowej, która wymusza stosowanie metod hybrydowych łączących LOF z innymi propozycjami \cite{cheng2019outlier}.
 	
-	\subsection{One-Class SVM}
+	\subsubsection{One-Class SVM}
 	Maszyna wektorów nośnych (ang. \textit{Support Vector Machines (SVM}) jest zaawansowanym narzędziem matematycznym, opartym na statystycznej teorii uczenia i jest używana do problemów klasyfikacji i regresji \cite{hejazi2013one}. Podstawowe koncepcje SVM były proponowane jako metoda binarnej klasyfikacji predykcyjnej do osiągnięcia dokładności predykcyjnej w problemach detekcji i klasyfikacji \cite{hejazi2013one}. Modyfikacja tej metody jaką jest klasyfikacja (ang.\textit(one-class), która poszukuje klasyfikatora, opartego na różnych jądrach, która może być używana do problemu detekcji anomalii \ cite{hejazi2013one}. Głównym założeniem algorytmu jest rzutowanie danych do przestrzeni cech o większej wymiarowości, za pomocą tzw. sztuczki jądrowej (ang. \textit{kernel trick}). Po tym przekształceniu powstaje hiperprzestrzeń o maksymalnym marginesie oddzielająca dane normalne od początku układu współrzędnych \cite{hejazi2013one}. Za anomalie uważane są wartości, które znajdują się po przeciwnej stronie tej granicy.
 	
-	\subsection{K-Means jako detektor anomalii}
+	\subsubsection{K-Means jako detektor anomalii}
 	Algorytm K-Means jest bardzo popularną metodą uczenia nienadzorowanego, która rozdziela zbiór danych na $k$ rozłącznych grup, nazywanych klastrami, o czym było wspomniane przy wyjaśnieniu pojęcia uczenia nienadzorowanego. Proces działania opiera się na iteracyjnym minimalizowaniu sumy kwadratów odległości euklidesowej od centroidu klastru, czyli jego centrum \cite{lima2010anomaly}. W założeniu detekcji anomalii K-Means wykorzystuje założenie, że normalne dane są bardzo zagęszczone wokół tych środkowych wartości. Natomiast dane nietypowe, podejrzane o bycie anomalią zwykle znajdują się w dłuższej odległości od tych centroidów. Przypisanie próbki do klasy odbywa się na podstawie przekroczenia progu akceptacji, przez euklidesową odległość od centrum klastra danych \cite{munz2007traffic}. Metoda ta jest ceniona za wysoką efektywność obliczeniową, pomimo uzależnienia od dobrego dobrania parametru $k$, oraz wartości odstające na tyle blisko od środka, żeby nie być uznanym za anomalię, ale na tyle daleko, że powoduje przesunięcia centroidu. 
 	
-	\section{Metody głębokiego uczenia}
+	\subsection{Metody głębokiego uczenia}
 	Współczesna analiza danych telemetrycznych wymusza odejście od klasycznych modeli ML w stronę głębokiego uczenia (ang. \textit{Deep Learning}). W przeciwieństwie do tradycyjnych metod, gdzie proces ekstrakcji cech (ang. \textit{feature engineering}) był narzucany przez analityka, architektury głębokie automatyzują ten etap. Dzięki zastosowaniu wielowarstwowej struktury sieci, model samoczynnie dekoduje sygnał na coraz wyższe poziomy abstrakcji. W niniejszej pracy podejście to wykorzystano do modelowania nieliniowych zależności w danych satelitarnych, których klasyczne algorytmy (jak np. K-Means) nie były w stanie w pełni odzwierciedlić.
 	W pracy do ewaluacji metod głębokiego uczenia użyto autoenkoderów wykorzystujących kilka architektur. Jest to typ sieci, który uczy się kompresować dane do odpowiedniego rozmiaru i potem ich dekompresję. W kontekście wykrywania anomalii model jest trenowany tylko na danych normalnych, co sprawia, że próbki nietypowe, będą generować większy błąd rekonstrukcji. Jest to narzędzie do  zmniejszenia wymiarowości sygnałów telemetrycznych , co ułatwia izolowanie „szumu” od rzeczywistych anomalii. 
 	
 	
-	\subsection{Autoenkoder gęsty}
+	\subsubsection{Autoenkoder gęsty}
 	Sieci gęste (w pełni połączone) stanowią podstawowy typ implementacji głębokiego uczenia w zadaniu detekcji anomalii. Architektura składa się z symetrycznie ułożonych warstw gęstych, gdzie każdy neuron w warstwie jest połączony z każdym neuronem warstwy następnej \cite{liu2018dense}. Model uczy się kompresji danych do tzw. przestrzeni utajonej (ang. \textit{latent space}) o zdecydowanie mniejszej liczbie wymiarów niż wejście. Sieć wtedy wyodrębnia kluczowe cechy sygnału, ignorując szum pomiarowy\cite{liu2018dense}. W ramach detekcji model rekonstruuje próbkę na podstawie skompresowanej wersji. Błąd średniokwadratowy (ang. \textit{Mean Square Error (MSE)}) jest głównym wskaźnikiem anomalii, jeżeli przekracza założony próg , to jest uznawany za anomalię \cite{cao2016hybrid}. 
 	W odróżnieniu od metod statystycznych, które analizują parametry w sposób niezależny, Dense Autoencoder automatycznie modeluje nieliniowe korelacje między wieloma kanałami telemetrycznymi jednocześnie. W niniejszej pracy architektura ta została wykorzystana do wyznaczenia granicy stanu nominalnego zbioru ESA-ADB. Dzięki zastosowaniu etykiet dostępnych w tym zbiorze (używanych wyłącznie do oceny skuteczności modelu, a nie do treningu), udało się zweryfikować, że nieliniowe odwzorowanie pozwala na wykrycie odchyleń, które w prostych analizach progowych pozostają niezauważone.
 	
-	\subsection{Autoenkoder splotowy (CNN-1D)}
+	\subsubsection{Autoenkoder splotowy (CNN-1D)}
 	Choć architektury typu konwolucyjnego  (ang. \textit{Convolutional Neural Network (CNN)}) są głównie kojarzone z przetwarzaniem obrazów, w aspekcie inżynierii danych znajdują zastosowanie w analizie lokalnych struktur w sygnałach szeregów czasowych \cite{kwon2018empirical}. W tej architekturze sieci neuronowej kluczem jest operacja splotu (ang. \textit{convolution}), która przesuwa zestaw filtrów wzdłuż danych wejściowych, wyodrębniając wzorce lokalne \cite{di2018using}. Po splocie sieci wykorzystują warstwy poolingu, które nadają modelowi odporność na drobne przesunięcia czasowe w danych \cite{nirthika2022pooling}. W przeciwieństwie do gęstych autoenkoderów, które przetwarzają dane w sposób „płaski” CNN zachowuje relację sąsiedztwa, pomiędzy kolejnymi próbkami czasowymi. Pozwala to na wychwycenie anomalii, które sieci gęste mogły uznać za szum. 
 	
-	\subsection{LSTM}
+	\subsubsection{LSTM}
 	Sieć typu Long Short-Term Memory (LSTM) stanowi odmianę rekurencyjnej sieci neuronowej, zaprojektowaną z myślą o rozwiązywaniu problemu znikającego gradientu, co umożliwia naukę długotrwałych zależności \cite{noh2021analysis}. Mechanizm „bramkowania”  (ang. \textit{gates}) determinuje, które informacje sygnału sieć ma zachować, a które nie mają znaczenia dla przewidywania kolejnego stanu \cite{xu2019multitask}. LSTM jest siecią, która zna historię czasową przebiegu, w przeciwieństwie do architektur gęstych i konwolucyjnych, które się skupiają na korelacjach międzykanałowych lub lokalnych. Ma to szczególne zastosowanie w detekcji nienaturalnych zmian w czasie. 
 	
 	\section{Miary oceny jakości detekcji}

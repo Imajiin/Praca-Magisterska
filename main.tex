@@ -723,20 +723,22 @@
 	
 	\chapter{Metodyka eksperymentów} 
 	
-	W tym rozdziale szczegółowo omówiono metodykę badawczą przyjętą w procesie waluacji algorytmów detekcji anomalii. W inżynierii danych i uczeniu maszynowym od nałożonego rygoru na proces eksperymentalny zależy wiarygodność, obiektywizm i jakość uzyskanych wyników, czyli wyłonienie optymalnego algorytmu do ciągłej analizy danych telemetrycznych. Koniecznym działaniem było zaprojektowanie klarownego i powtarzalnego rurociągu badawczego (ang. \english{research pipeline}).
+	W tym rozdziale szczegółowo omówiono metodykę badawczą przyjętą w procesie waluacji algorytmów detekcji anomalii. W inżynierii danych i uczeniu maszynowym od nałożonego rygoru na proces eksperymentalny zależy wiarygodność, obiektywizm i jakość uzyskanych wyników, czyli wyłonienie optymalnego algorytmu do ciągłej analizy danych telemetrycznych. Koniecznym działaniem było zaprojektowanie klarownego i powtarzalnego rurociągu badawczego \ksremark{Terminologia angielska jest zwykle dziwna (np. rule of the thumb), co zauważają nawet sami Anglosasi. Dlatego nie tłumaczymy jej dosłownie. Trzeba tłumaczyć kontekstowo. Można napisać „potok eksperymetalny”, „potok badawczy”.} (ang. \english{research pipeline}).
 	Proces eksperymentalny składa się z czterech głównych faz:
 	\begin{enumerate}
-		\item \textbf{Akwizycja i przygotowanie danych:} W tym kroku zakłada się pozyskanie rzeczywistego zbioru danych telemetrycznych(ESA-ADB), jego analiza, dobór odpowiednich kanałów oraz inżynieria cech z wykorzystaniem techniki okna kroczącego/
+		\item \textbf{Akwizycja i przygotowanie danych:} W tym kroku zakłada się pozyskanie rzeczywistego zbioru danych telemetrycznych(ESA-ADB), jego analiza, dobór odpowiednich kanałów oraz inżynieria cech z wykorzystaniem techniki okna kroczącego.
 		\item \textbf {Punkt odniesienia:} Implementacja i optymalizacja jednej z metod statystycznych, stanowiącej odniesienie do badania innych, bardziej złożonych metod.
 		\item \textbf{Właściwe badanie:} Trening i optymalizacja dobranych algorytmów z trzech różnych klas: metod statystycznych, uczenia maszynowego i głębokiego uczenia opartego na sieciach neuronowych w warunkach pełnej kontroli.
-		\item \textbf {Ewaluacja i weryfikacja:} Zestawienie uzyskanych wyników przy pomocy głównych miar (Precyzja, Czułość, F1-Score) oraz sprawdzenie ich rzetelności za pomocą testów statystycznych.
+		\item \textbf {Ewaluacja i weryfikacja:} Zestawienie uzyskanych wyników przy pomocy głównych miar (Precyzja, Czułość, F1-Score \ksremark{nazwy miar małymi literami}) oraz sprawdzenie ich rzetelności za pomocą testów statystycznych.
 	\end{enumerate}
 	
 	\newpage
 	
 	\section{Zbiór danych}
-	Do przeprowadzenia badań wykorzystano zbiór Anomaly Detection Benchmark \cite{kotowski2024esaadb} autorstwa Europejskiej Agencji Kosmicznej. Jest to otwarty zbiór służący do oceny zdolności algorytmów wykrywających anomalie w szeregach czasowych. Obejmuje on setki miliony próbek danych zebranych w trakcie misji satelitarnych w przeciągu 14 lat. Benchmark udostępnia 76 kanałów danych o różnych odsetkach zawartości anomalii. Zostały także poddane procesowi etykietowania, aby ułatwić pracę osobom przeprowadzającym badania, a także normalizacji do zakresu od 0 do 1, przez inżynierów Agencji. Wszystkie anomalie oznaczone w zbiorze.
+	Do przeprowadzenia badań wykorzystano zbiór `Anomaly Detection Benchmark' \cite{kotowski2024esaadb} autorstwa Europejskiej Agencji Kosmicznej. Jest to otwarty zbiór służący do oceny zdolności algorytmów wykrywających anomalie w szeregach czasowych. Obejmuje on setki miliony próbek danych zebranych w trakcie misji satelitarnych w przeciągu 14 lat. Benchmark udostępnia 76 kanałów danych o różnych odsetkach zawartości anomalii. Zostały także poddane procesowi etykietowania, aby ułatwić pracę osobom przeprowadzającym badania, a także normalizacji do zakresu od 0 do 1, przez inżynierów Agencji. Wszystkie anomalie oznaczone w zbiorze.
 	W pracy skupiono się głównie na 6 kanałach oznaczonych  numerami od 41 do 46, wskazanych, jako najbardziej reprezentatywne przez autorów, aby nie przetwarzać całości zbioru.  Łącznie posiadają one niecałe 15 mln próbek, co przy całości zbioru, który posiada ponad 700 milionów danych. 
+	
+	\ksremark{dotąd}
 	
 	\subsection{Charakterystyka i podział 80/20}
 	Wszystkie kanały zbioru, które zostały poddane badaniom, tak jak wspomniano wcześniej, posiadają łącznie 14{,}7 mln próbek. W przypadku ewaluacji pod kątem wykrywania anomalii, podstawową praktyką jest podzielenie zbioru na dwie części. Pierwsze 80 \% danych będzie służyć do trenowania modelu, natomiast na pozostałych 20 \% będzie przeprowadzany test. Podział chronologiczny służy do zapobiegania niepożądanemu zjawisku, jakim jest wyciek danych \english{(ang. data leakage)}. Ta praktyka symuluje ocenę skuteczności algorytmów w warunkach realistycznej implementacji w dowolnej gałęzi przemysłu, gdzie modele są trenowane na historycznych próbkach i testowane na wartościach, które dopiero do modelu wejdą. 

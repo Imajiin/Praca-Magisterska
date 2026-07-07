@@ -661,30 +661,32 @@
 	\ksremark{tytuł trzeba napisać bez `jako detektor anomalii'}
 	Algorytm K-Means jest bardzo popularną metodą uczenia nienadzorowanego, która rozdziela zbiór danych na $k$ rozłącznych grup, nazywanych klastrami, o czym było wspomniane przy wyjaśnieniu pojęcia uczenia nienadzorowanego \ksremark{odnośnik do podrozdziału}. Proces działania opiera się na iteracyjnym minimalizowaniu sumy kwadratów odległości euklidesowej od centroidu klastra, czyli jego centrum \cite{lima2010anomaly}. W założeniu detekcji anomalii K-Means wykorzystuje założenie, że normalne dane są bardzo zagęszczone wokół tych środkowych wartości. Natomiast dane nietypowe, podejrzane o bycie anomalią \comma\ zwykle znajdują się w dłuższej odległości od tych centroidów. Przypisanie próbki do klasy odbywa się na podstawie przekroczenia progu akceptacji, \nocomma\ przez euklidesową odległość od centrum klastra danych \cite{munz2007traffic}. Metoda ta jest ceniona za wysoką efektywność obliczeniową, pomimo uzależnienia od dobrego dobrania parametru $k$, oraz wartości odstające na tyle blisko od środka, żeby nie być uznanym za anomalię, ale na tyle daleko, że powoduje przesunięcia centroidu \ksremark{Wiem, o co chodzi, ale zdanie trzeba przeformułować.}. 
 	
-	\ksremark{dotąd}
+
 	\subsection{Metody głębokiego uczenia}
-	Współczesna analiza danych telemetrycznych wymusza odejście od klasycznych modeli ML w stronę głębokiego uczenia (ang. \textit{Deep Learning}). W przeciwieństwie do tradycyjnych metod, gdzie proces ekstrakcji cech (ang. \textit{feature engineering}) był narzucany przez analityka, architektury głębokie automatyzują ten etap. Dzięki zastosowaniu wielowarstwowej struktury sieci, model samoczynnie dekoduje sygnał na coraz wyższe poziomy abstrakcji. W niniejszej pracy podejście to wykorzystano do modelowania nieliniowych zależności w danych satelitarnych, których klasyczne algorytmy (jak np. K-Means) nie były w stanie w pełni odzwierciedlić.
-	W pracy do ewaluacji metod głębokiego uczenia użyto autoenkoderów wykorzystujących kilka architektur. Jest to typ sieci, który uczy się kompresować dane do odpowiedniego rozmiaru i potem ich dekompresję. W kontekście wykrywania anomalii model jest trenowany tylko na danych normalnych, co sprawia, że próbki nietypowe, będą generować większy błąd rekonstrukcji. Jest to narzędzie do  zmniejszenia wymiarowości sygnałów telemetrycznych , co ułatwia izolowanie „szumu” od rzeczywistych anomalii. 
+	Współczesna analiza danych telemetrycznych wymusza odejście od klasycznych modeli ML w stronę głębokiego uczenia (ang. \textit{Deep Learning}\ksremark{małymi literami i w makrze english}). W przeciwieństwie do tradycyjnych metod, gdzie proces ekstrakcji cech (ang. \textit{feature engineering}) był narzucany przez analityka, architektury głębokie automatyzują ten etap. Dzięki zastosowaniu wielowarstwowej struktury sieci, model samoczynnie dekoduje sygnał na coraz wyższe poziomy abstrakcji. W niniejszej pracy podejście to wykorzystano do modelowania nieliniowych zależności w danych satelitarnych, których klasyczne algorytmy (jak np. K-Means) nie były w stanie w pełni odzwierciedlić.
+	W pracy do ewaluacji metod głębokiego uczenia użyto autoenkoderów wykorzystujących kilka architektur. Jest to typ sieci, który uczy się kompresować dane do odpowiedniego rozmiaru i potem ich dekompresję. W kontekście wykrywania anomalii model jest trenowany tylko na danych normalnych \ksremark{Może lepiej będzie: „… na danych bez anomalii”?}, co sprawia, że próbki nietypowe, będą generować większy błąd rekonstrukcji. Jest to narzędzie do  zmniejszenia wymiarowości sygnałów telemetrycznych, co ułatwia izolowanie „szumu” \ksremark{Dlatego w cudzysłowie?} od rzeczywistych anomalii. 
 	
 	
 	\subsubsection{Autoenkoder gęsty}
-	Sieci gęste (w pełni połączone) stanowią podstawowy typ implementacji głębokiego uczenia w zadaniu detekcji anomalii. Architektura składa się z symetrycznie ułożonych warstw gęstych, gdzie każdy neuron w warstwie jest połączony z każdym neuronem warstwy następnej \cite{liu2018dense}. Model uczy się kompresji danych do tzw. przestrzeni utajonej (ang. \textit{latent space}) o zdecydowanie mniejszej liczbie wymiarów niż wejście. Sieć wtedy wyodrębnia kluczowe cechy sygnału, ignorując szum pomiarowy\cite{liu2018dense}. W ramach detekcji model rekonstruuje próbkę na podstawie skompresowanej wersji. Błąd średniokwadratowy (ang. \textit{Mean Square Error (MSE)}) jest głównym wskaźnikiem anomalii, jeżeli przekracza założony próg , to jest uznawany za anomalię \cite{cao2016hybrid}. 
-	W odróżnieniu od metod statystycznych, które analizują parametry w sposób niezależny, Dense Autoencoder automatycznie modeluje nieliniowe korelacje między wieloma kanałami telemetrycznymi jednocześnie. W niniejszej pracy architektura ta została wykorzystana do wyznaczenia granicy stanu nominalnego zbioru ESA-ADB. Dzięki zastosowaniu etykiet dostępnych w tym zbiorze (używanych wyłącznie do oceny skuteczności modelu, a nie do treningu), udało się zweryfikować, że nieliniowe odwzorowanie pozwala na wykrycie odchyleń, które w prostych analizach progowych pozostają niezauważone.
+	Sieci gęste (w pełni połączone) stanowią podstawowy typ implementacji głębokiego uczenia w zadaniu detekcji anomalii. Architektura składa się z symetrycznie ułożonych warstw gęstych, gdzie każdy neuron w warstwie jest połączony z każdym neuronem warstwy następnej \cite{liu2018dense}. Model uczy się kompresji danych do tzw. przestrzeni utajonej (ang. \textit{latent space}) o zdecydowanie mniejszej liczbie wymiarów niż wejście. Sieć wtedy wyodrębnia kluczowe cechy sygnału, ignorując szum pomiarowy \cite{liu2018dense}. W ramach detekcji model rekonstruuje próbkę na podstawie skompresowanej wersji. Błąd średniokwadratowy (ang. \textit{mean square error (MSE)}) jest głównym wskaźnikiem anomalii, jeżeli przekracza założony próg, to jest uznawany za anomalię \cite{cao2016hybrid}. 
+	W odróżnieniu od metod statystycznych, które analizują parametry w sposób niezależny, Dense Autoencoder \ksremark{po polsku} automatycznie modeluje nieliniowe korelacje między wieloma kanałami telemetrycznymi jednocześnie. W niniejszej pracy architektura ta została wykorzystana do wyznaczenia granicy stanu nominalnego zbioru ESA-ADB. Dzięki zastosowaniu etykiet dostępnych w tym zbiorze (używanych wyłącznie do oceny skuteczności modelu, a nie do treningu), udało się zweryfikować, że nieliniowe odwzorowanie pozwala na wykrycie odchyleń, które w prostych analizach progowych pozostają niezauważone.
 	
 	\subsubsection{Autoenkoder splotowy (CNN-1D)}
+	\ksremark{Skrót CNN-1D nie jest wyjaśniony w dalszym ciągu. Może nie jest potrzebny w tytule?}
 	Choć architektury typu konwolucyjnego  (ang. \textit{Convolutional Neural Network (CNN)}) są głównie kojarzone z przetwarzaniem obrazów, w aspekcie inżynierii danych znajdują zastosowanie w analizie lokalnych struktur w sygnałach szeregów czasowych \cite{kwon2018empirical}. W tej architekturze sieci neuronowej kluczem jest operacja splotu (ang. \textit{convolution}), która przesuwa zestaw filtrów wzdłuż danych wejściowych, wyodrębniając wzorce lokalne \cite{di2018using}. Po splocie sieci wykorzystują warstwy poolingu, które nadają modelowi odporność na drobne przesunięcia czasowe w danych \cite{nirthika2022pooling}. W przeciwieństwie do gęstych autoenkoderów, które przetwarzają dane w sposób „płaski” CNN zachowuje relację sąsiedztwa, pomiędzy kolejnymi próbkami czasowymi. Pozwala to na wychwycenie anomalii, które sieci gęste mogły uznać za szum. 
 	
 	\subsubsection{LSTM}
-	Sieć typu Long Short-Term Memory (LSTM) stanowi odmianę rekurencyjnej sieci neuronowej, zaprojektowaną z myślą o rozwiązywaniu problemu znikającego gradientu, co umożliwia naukę długotrwałych zależności \cite{noh2021analysis}. Mechanizm „bramkowania”  (ang. \textit{gates}) determinuje, które informacje sygnału sieć ma zachować, a które nie mają znaczenia dla przewidywania kolejnego stanu \cite{xu2019multitask}. LSTM jest siecią, która zna historię czasową przebiegu, w przeciwieństwie do architektur gęstych i konwolucyjnych, które się skupiają na korelacjach międzykanałowych lub lokalnych. Ma to szczególne zastosowanie w detekcji nienaturalnych zmian w czasie. 
+	\ksremark{tytuł podrozdziału po polsku}
+	Sieć typu Long Short-Term Memory \ksremark{najpierw po polsku} (LSTM) stanowi odmianę rekurencyjnej sieci neuronowej, zaprojektowaną z myślą o rozwiązywaniu problemu znikającego gradientu, co umożliwia naukę długotrwałych zależności \cite{noh2021analysis}. Mechanizm „bramkowania” \ksremark{Może: „mechanizm bramek”?}  (ang. \textit{gates}) determinuje, które informacje sygnału sieć ma zachować, a które nie mają znaczenia dla przewidywania kolejnego stanu \cite{xu2019multitask}. LSTM jest siecią, która zna historię czasową przebiegu w przeciwieństwie do architektur gęstych i konwolucyjnych, które się skupiają na korelacjach międzykanałowych lub lokalnych. Ma to szczególne zastosowanie w detekcji nienaturalnych zmian w czasie. 
 	
 	\section{Miary oceny jakości detekcji}
 	
 	W celu ocenienia skuteczności algorytmów detekcji anomalii w trakcie badań wykorzystuje się standardowe miary oceny jakości wywodzące się z macierzy błędów (zwana też macierzą pomyłek, ang. \english{confusion matrix}) \cite{yang2024confusion}. Jest to dwukolumnowa i dwuwierszowa tabela. Wiersze oznaczają właściwe wartości oznaczone jako pozytywne i negatywne. Kolumny, natomiast reprezentują wartości prognozowane przez testowany model. Umiejscowienie typów danych nie jest ustandaryzowane. Wartości wyznaczone przez model mogą być w wierszach tabeli, a właściwe jako kolumny \cite{yang2024confusion}. Macierz błędów składa się z 4 kluczowych wartości będących kombinacją wartości w tabeli:
 	\begin{itemize}
-		\item \textbf{TP (True Positive)} - prawidłowa wykryta anomalia,
-		\item \textbf{FP (False  Positive)} - fałszywy alarm (normalna wartość sklasyfikowana jako anomalia),
-		\item \textbf{FN (False Negative)} - wartość przeoczona przez model (anomalia niewykryta),
-		\item \textbf{TN (True Negative)} - prawidłowy wykryty stan normalny.
+		\item {TP (True Positive)} -- prawidłowa wykryta anomalia,
+		\item {FP (False  Positive)} -- fałszywy alarm (normalna wartość sklasyfikowana jako anomalia),
+		\item {FN (False Negative)} -- wartość przeoczona przez model (anomalia niewykryta),
+		\item {TN (True Negative)} -- prawidłowy wykryty stan normalny.
 	\end{itemize}
 	
 	\subsection{Precyzja}
@@ -693,10 +695,12 @@
 		P = \frac{TP}{TP + FP}
 		\label{eq:precision}
 	\end{equation} 
+	\ksremark{kropka na końcu wzoru}
 	Im większa wartość precyzji, tym mniej fałszywych alarmów model podnosi, co w sytuacji nadzoru jest kluczowe, gdyż pomaga ograniczać koszty, a w przypadku wykonywania pomiarów i badań wpływa na jakość uzyskanych wyników i użytek w warunkach klinicznych \cite{yang2024confusion}.
 	
 	\subsection{Czułość (Recall)}
-	Czułość $R$ definiuje zdolność modelu do wykrywania wszystkich występujących w zbiorze anomalii. Jest to stosunek poprawnie wykrytych anomalii do łącznej rzeczywistej liczby zdarzeń \cite{sathyanarayanan2024confusion}. Wzór na tą miarę jest następujący:
+	\ksremark{bez nazwy angielskie w tytule}
+	Czułość \ksremark{tutaj nazwa angielska (jak w przypadku precyzji)} $R$ definiuje zdolność modelu do wykrywania wszystkich występujących w zbiorze anomalii. Jest to stosunek poprawnie wykrytych anomalii do łącznej rzeczywistej liczby zdarzeń \cite{sathyanarayanan2024confusion}. Wzór na tą miarę jest następujący:
 	
 	\begin{equation}
 		R = \frac{TP}{TP + FN}
@@ -706,8 +710,8 @@
 	Wysoka czułość minimalizuje ryzyko przeoczenie awarii, co jest kluczowe, dla bardzo istotnych systemów.
 
 	
-	\subsection{F1-Score}
-	
+	\subsection{F1}
+	\ksremark{Trzeba stosować jednolite oznaczenie w całej pracy. Proponowałbym $F_1$.}
 	Miara F1-Score $F_1$ stanowi średnią harmoniczną między $P$ i $R$. Jest to wartość wykorzystywana jako globalny wskaźnik jakości modelu, kiedy zbiór danych jest niezbilansowany, a dążenie do jak największej precyzji, bardzo często pokrywa się z spadkiem czułości \cite{sathyanarayanan2024confusion}. Dzięki temu  F1-Score pozwala na wyważoną ocenę modelu, niż pojedyncze miary precyzji i czułości, stanowiąc skuteczny wskaźnik w modelach klasyfikacyjnych. Wzór na tą miarę jest umieszczony poniżej:
 	
 	\begin{equation}

@@ -736,45 +736,45 @@
 	
 	\section{Zbiór danych}
 	Do przeprowadzenia badań wykorzystano zbiór `Anomaly Detection Benchmark' \cite{kotowski2024esaadb} autorstwa Europejskiej Agencji Kosmicznej. Jest to otwarty zbiór służący do oceny zdolności algorytmów wykrywających anomalie w szeregach czasowych. Obejmuje on setki miliony próbek danych zebranych w trakcie misji satelitarnych w przeciągu 14 lat. Benchmark udostępnia 76 kanałów danych o różnych odsetkach zawartości anomalii. Zostały także poddane procesowi etykietowania, aby ułatwić pracę osobom przeprowadzającym badania, a także normalizacji do zakresu od 0 do 1, przez inżynierów Agencji. Wszystkie anomalie oznaczone w zbiorze.
-	W pracy skupiono się głównie na 6 kanałach oznaczonych  numerami od 41 do 46, wskazanych, jako najbardziej reprezentatywne przez autorów, aby nie przetwarzać całości zbioru.  Łącznie posiadają one niecałe 15 mln próbek, co przy całości zbioru, który posiada ponad 700 milionów danych. 
+	W pracy skupiono się głównie na 6 kanałach oznaczonych  numerami od 41 do 46, wskazanych, jako najbardziej reprezentatywne przez autorów, aby nie przetwarzać całości zbioru.  Łącznie posiadają \ksremark{lepiej: mają} one niecałe 15 mln próbek, co przy całości zbioru, który posiada ponad 700 milionów danych. 
 	
-	\ksremark{dotąd}
+ 
 	
 	\subsection{Charakterystyka i podział 80/20}
-	Wszystkie kanały zbioru, które zostały poddane badaniom, tak jak wspomniano wcześniej, posiadają łącznie 14{,}7 mln próbek. W przypadku ewaluacji pod kątem wykrywania anomalii, podstawową praktyką jest podzielenie zbioru na dwie części. Pierwsze 80 \% danych będzie służyć do trenowania modelu, natomiast na pozostałych 20 \% będzie przeprowadzany test. Podział chronologiczny służy do zapobiegania niepożądanemu zjawisku, jakim jest wyciek danych \english{(ang. data leakage)}. Ta praktyka symuluje ocenę skuteczności algorytmów w warunkach realistycznej implementacji w dowolnej gałęzi przemysłu, gdzie modele są trenowane na historycznych próbkach i testowane na wartościach, które dopiero do modelu wejdą. 
-	
+	Wszystkie kanały zbioru, które zostały poddane badaniom, tak jak wspomniano wcześniej, posiadają łącznie 14{,}7 mln próbek. W przypadku ewaluacji pod kątem wykrywania anomalii, podstawową praktyką jest podzielenie zbioru na dwie części. Pierwsze 80 \% \ksremark{bez odstępu: 80\%} danych będzie służyć do trenowania modelu, natomiast na pozostałych 20 \% będzie przeprowadzany test. Podział chronologiczny służy do zapobiegania niepożądanemu zjawisku, jakim jest wyciek danych \english{(ang. data leakage)} \ksremark{(ang. \english{data leakage})}. Ta praktyka symuluje ocenę skuteczności algorytmów w warunkach realistycznej implementacji w dowolnej gałęzi przemysłu, gdzie modele są trenowane na historycznych próbkach i testowane na wartościach, które dopiero do modelu wejdą. 
+	%
 	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_00_sig_overview.png}
 		\caption{Przegląd sygnałów z podziałem chronologicznym 80/20.}
 		\label{fig:00-sig-overview}
 	\end{figure}
-	Rysunek ~\ref{fig:00-sig-overview} przedstawia... umieszczony powyżej przedstawia przegląd rozkładu wartości danych we wszystkich badanych kanałach. Można zauważyć, że czerwona, przerywana linia oznacza linię podziału danych we wszystkich kanałach na zbiory uczące i testując
+	Rysunek ~\ref{fig:00-sig-overview} przedstawia... \ksremark{todo?} umieszczony powyżej przedstawia przegląd rozkładu wartości danych we wszystkich badanych kanałach. Można zauważyć, że \ksremark{bez „można zauważyć, że”} czerwona, przerywana linia oznacza linię podziału danych we wszystkich kanałach na zbiory uczące i testując 
 	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_raw_01_overview.png}
 		\caption{Wykres kanałów z występującymi anomaliami}
 		\label{fig:raw:01-overview}
 	\end{figure}
-	
+	%
 	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_raw_02_zoom_segments.png}
 		\caption{Przybliżone wykresy przedstawiające segmenty z anomaliami}
 		\label{fig:raw:02-zoom-segments}
 	\end{figure}
-	
-	Z kolei na rysunku ~\ref{fig:raw:01-overview} ukazano rozkład anomalii w zbiorze, aby pokazać, gdzie się skupiają. W celu ukazania skali pokazano tylko co pięćdziesiątą próbkę, aby pokazać skalę danych na których ewaluowano model. Aby jednak wskazać konkretniej jak wyglądają segmenty anomalii na tle danych normalnych zdecydowano dać przybliżenie na poszczególne segmenty, które zostały ukazane na rysunku ~\ref{fig:raw:02-zoom-segments}. Na obu tych rysunkach anomalie zostały oznaczone na czerwono, a intensywność barwy jest wprost proporcjonalna do gęstości tych danych na obszarze. 
+	%
+	Z kolei na rysunku ~\ref{fig:raw:01-overview} ukazano rozkład anomalii w zbiorze, aby pokazać, gdzie się skupiają. W celu ukazania skali pokazano tylko co pięćdziesiątą próbkę, aby pokazać skalę danych \comma\ na których ewaluowano model. Aby jednak wskazać konkretniej jak wyglądają segmenty anomalii na tle danych normalnych zdecydowano dać przybliżenie na poszczególne segmenty, które zostały ukazane na rysunku ~\ref{fig:raw:02-zoom-segments}. Na obu tych rysunkach anomalie zostały oznaczone na czerwono, a intensywność barwy jest wprost proporcjonalna do gęstości tych danych na obszarze. 
 	
 	\subsection{Balans klas i rozkład anomalii}
-	Na rysunku ~\ref{fig:00-class-balance} umieszczonym poniżej widać \comma\ jak rozłożenie danych na treningowe i testowe wpływa na odsetek anomalii. W analizowanej próbce, opartej na kanałach od 41 do 46 pierwsza część, czyli 11,7 mln danych zawiera 1,2 mln próbek oznaczonych jako anomalie, co przekłada się na 10,47 procent anomalii. W dalszych częściach badania ta część będzie służyć do uczenia modeli. Pozostała część zbioru, obejmująca pozostałą  część danych, posiada 310 tysięcy anomalii w sobie. Daje to łączenie 10,48 procent anomalii w całości. Oznacza to, że jest to wartość zdecydowanie większa niż w reszcie benchmarku, gdyż średnia danych całości wynosi ledwie 1,8 procent dla danych Mission-1\cite{kotowski2024esaadb}, co czyni badaną część skrajnie niezbilansowaną, co może mieć wpływ na końcowy wynik.
+	Na rysunku ~\ref{fig:00-class-balance} umieszczonym poniżej widać \comma\ jak rozłożenie danych na treningowe i testowe wpływa na odsetek anomalii. W analizowanej próbce, opartej na kanałach od 41 do 46 pierwsza część, czyli 11,7 mln danych zawiera 1,2 mln próbek oznaczonych jako anomalie, co przekłada się na 10,47 procent anomalii. W dalszych częściach badania ta część będzie służyć do uczenia modeli. Pozostała część zbioru, obejmująca pozostałą  część danych, posiada 310 tysięcy anomalii w sobie. Daje to łączenie 10,48 procent anomalii w całości. Oznacza to, że jest to wartość zdecydowanie większa niż w reszcie benchmarku, gdyż średnia danych całości wynosi ledwie 1,8 procent dla danych Mission-1 \cite{kotowski2024esaadb}, co czyni badaną część skrajnie niezbilansowaną, co może mieć wpływ na końcowy wynik.
 	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_00_class_balance.png}
 		\caption{Bilans klas oraz rozkład występowania anomalii w zbiorach danych.}
 		\label{fig:00-class-balance}
 	\end{figure}
-	Na poniższym rysunku ~\ref{fig:00-anomaly-dist} widać z kolei jak anomalie rozkładają się w poszczególnych zbiorach. Z kolei rysunek ~\ref{fig:raw:03-distributions} przedstawia rozkład wartości surowych dla wszystkich 6 analizowanych kanałów, z wyróżnionym rozróżnieniem na dane normalne i anomalie, w formie histogramu, jakie wartości najczęściej były klasyfikowane. 
+	Na poniższym \ksremark{bez „poniższym”} rysunku ~\ref{fig:00-anomaly-dist} widać z kolei \comma\ jak anomalie rozkładają się w poszczególnych zbiorach. Z kolei rysunek ~\ref{fig:raw:03-distributions} przedstawia rozkład wartości surowych dla wszystkich 6 analizowanych kanałów, z wyróżnionym rozróżnieniem na dane normalne i anomalie, w formie histogramu, jakie wartości najczęściej były klasyfikowane. 
 	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_00_anomaly_dist.png}
@@ -792,7 +792,7 @@
 	
 	
 	\section{Środowisko i implementacja}
-	Do przeprowadzenia badań wykorzystano laptop posiadający procesor AMD Ryzen 5 5600H, posiadający 6 rdzeni i 12 wątków, 16 GB pamięci RAM i zintegrowaną kartę graficzną AMD Radeon™ Graphics z systemem operacyjnym Windows 11. Wszystkie programy zostały wykonane w języku Python w wersji 3.12.2 z wykorzystaniem  poniższych wersji bibliotek:
+	Do przeprowadzenia badań wykorzystano laptop posiadający procesor AMD Ryzen 5 5600H, posiadający 6 rdzeni i 12 wątków, 16 GB pamięci RAM i zintegrowaną kartę graficzną AMD Radeon™ Graphics z systemem operacyjnym Windows 11. Wszystkie programy zostały wykonane w języku Python w wersji 3.12.2 z wykorzystaniem  poniższych wersji bibliotek: \ksremark{Coś tu jest ten tak.}
 	\begin{table}%[H]
 		\centering
 		\caption{Wersje najważniejszych bibliotek wykorzystanych w eksperymentach}
@@ -813,7 +813,9 @@
 		\end{tabular}
 	\end{table}
 	
-	Programy zostały wykonane w środowisku Visual Studio Code. W domyślnym folderze ze strukturą projektu znajdują się wszystkie kody spełniające poszczególne funkcje, takie jak przygotowanie danych, inżynieria cech, testowanie wszystkich trzech klas metod i porównanie wszystkich metod pod względem czasu potrzebnego do wykonania poszczególnej iteracji algorytmu z jednym zestawem parametrów, a także zużycia pamięci dla każdej z nich. Każdy program swoje wyniki w osobnym podfolderze folderu „results”. 
+	Programy zostały wykonane w środowisku Visual Studio Code. W domyślnym folderze ze strukturą projektu znajdują się wszystkie kody spełniające poszczególne funkcje, takie jak przygotowanie danych, inżynieria cech, testowanie wszystkich trzech klas metod i porównanie wszystkich metod pod względem czasu potrzebnego do wykonania poszczególnej iteracji algorytmu z jednym zestawem parametrów, a także zużycia pamięci dla każdej z nich. Każdy program swoje wyniki w osobnym podfolderze folderu „results” \ksremark{\url{results}}. 
+	
+	\ksremark{dotąd} 
 	
 	
 	\section{Preprocessing i inżynieria cech}

@@ -554,8 +554,13 @@
 	\section{Szeregi czasowe i anomalie}
 
 	\subsection{Definicja szeregu czasowego}
-		Szeregiem czasowym można nazwać ciąg danych, które są zapisywane sekwencyjnie w czasie \cite{zamanzadeh2024deep} Najczęstszą postacią tej reprezentacji danych jest ukazanie ich na linii czasowej, co pozwala na ujawnienie informacji o wzorcach w danych. \ksremark{bez kropki} \cite{ naqvi2017time}. Przykładem takich szeregów jest np. \ksremark{Bez `np', bo na początku zdania mamy `Przykładem … jest'.} pomiary temperatury z godzinnymi interwałami na konkretniej stacji pogodowej, lub pomiary ceny zamknięcia danej akcji na giełdzie \cite{naqvi2017time}. W typowym przypadku szereg czasowy można poddać dekompozycji na wzór \ksremark{do sumy}:
 	
+	\begin{Definition}
+	    \ksremark{Trzeba formalnie zdefiniować szereg czasowy.} 
+	\end{Definition}
+		Szeregiem czasowym \ksremark{$Y_t = \left( y_1, y_2, \ldots, y_n\right)$} można nazwać ciąg danych, które są zapisywane sekwencyjnie w czasie \cite{zamanzadeh2024deep} Najczęstszą postacią tej reprezentacji danych jest ukazanie ich na linii czasowej, co pozwala na ujawnienie informacji o wzorcach w danych. \ksremark{bez kropki} \cite{ naqvi2017time}. Przykładem takich szeregów jest np. \ksremark{Bez `np', bo na początku zdania mamy `Przykładem … jest'.} pomiary temperatury z godzinnymi interwałami na konkretniej stacji pogodowej, lub pomiary ceny zamknięcia danej akcji na giełdzie \cite{naqvi2017time}. W typowym przypadku szereg czasowy można poddać dekompozycji na wzór \ksremark{do sumy}:
+	
+ 
 	\begin{equation}
 		Y_t = T_t + S_t + R_t
 	\end{equation}
@@ -620,19 +625,19 @@
 		S_t^+ > h \\
 		S_t^- < h
 	\end{align}
-		\ksremark{gdzie wartość $h$ jest progiem decyzyjnym.}
+		\ksremark{gdzie wartość $h$ jest progiem decyzyjnym. Czy zawsze jest taki sam dla $S_t^+$ i $S_t^-$?}
 		\ksremark{Tu są dwie nierówności. Jak są połączone? Przez `i' czy `lub'?}
 		
 		
 	\subsubsection{EWMA}
-	\ksremark{Tytuł po polsku i w nawiasie EWMA}.
+	\ksremark{Tytuł po polsku.}.
 	Alternatywnym podejściem  do uwzględnienia historii sygnału w procesie analizy szeregów czasowych kątem wykrywania anomalii jest użycie wykładniczo ważonej średniej ruchomej (ang. \english{Exponentially Weighted Moving Average}, EWMA). W przeciwieństwie do CUSUM przypisuje  starszym obserwacjom proporcjonalnie mniejszą wagę \cite{vcisar2011optimization}. Dla próbki $i$ EWMA jest definiowana poniższym wzorem:
 	\begin{equation}
 		\hat{x}_t = \alpha\, x_t + (1 - \alpha)\, \hat{x}_{t-1},
 		\label{eq:ewma}
 	\end{equation}
 	\ksremark{Co oznacza $\hat{x}_t$?} \ksremark{Jaka jest wartość początkowa?}
-	gdzie modyfikowaną wartością, \nocomma\ jest parametr wygładzania $\lambda \in (0,1]$, który dostosowuje głębokość pamięci wchodzącej do ewaluacji. Mniejsza wartość, \ksremark{Nie oddzielamy podmiotu od orzeczenia przecinkiem.} sprawia, że model opiera się na coraz bardziej historycznych  danych, zwiększając jednocześnie wpływ powolnych dryfów. Wartości bliskie górnej granicy przybliżają naturę metody do klasycznych metod punktowych. Anomalia zostaje wykryta, gdy wartość wygładzona $Z_i$ przekroczy granicę kontrolną \cite{vcisar2011optimization}. 
+	gdzie modyfikowaną wartością, \nocomma\ jest parametr wygładzania $\lambda \in (0,1]$ \ksremark{We wzorze nie ma lambdy.}, który dostosowuje głębokość pamięci wchodzącej do ewaluacji. Mniejsza wartość, \ksremark{Nie oddzielamy podmiotu od orzeczenia przecinkiem.} sprawia, że model opiera się na coraz bardziej historycznych  danych, zwiększając jednocześnie wpływ powolnych dryfów. Wartości bliskie górnej granicy przybliżają naturę metody do klasycznych metod punktowych. Anomalia zostaje wykryta, gdy wartość wygładzona $Z_i$ \ksremark{Co oznacza $Z_i$?} przekroczy granicę kontrolną \cite{vcisar2011optimization}. 
 	
 	\subsection{Metody uczenia maszynowego}
 	W ramach postępu technologicznego nowe systemy telemetryczne stały się bardziej złożone i ilość gromadzonych danych także się zwiększyła. Metody statystyczne z czasem w obliczu tego rozwoju stały się niewystarczające. Pomimo wysokiej skuteczności w zakresie analizy jednowymiarowej metody takie jak Z-Score, \nocomma\ czy EWMA zaczęły docierać do granic swoich możliwości w obliczu wielowymiarowych przestrzeni danych. Rozwiązaniem problemu jest zastosowanie algorytmów uczenia maszynowego (ang. \english{machine learning}, ML). Jest to część szerszego zagadnienia \comma\ jakim jest sztuczna inteligencja, na którą się składa budowanie modeli zdolnych do nauki i podejmowania decyzji opartych na dostępnych danych \cite{kufel2023machine}. W dziedzinie inżynierii danych, \nocomma\ są to jedne z najpopularniejszych narzędzi używanych obecnie przez analityków danych \cite{lenart2024comparison}. Jest to grupa metod używająca klasycznych metod analizy danych, takich jak metoda najmniejszych kwadratów, \nocomma\ czy interpolacja wielomianowa. W kontekście wykrywania anomalii, \nocomma\ algorytmy uczenia maszynowego, \nocomma\ dzieli się na trzy główne kategorie, \nocomma\ w zależności od struktury danych i ich dostępności:  
@@ -699,15 +704,15 @@
 	Im większa wartość precyzji, tym mniej fałszywych alarmów model podnosi, co w sytuacji nadzoru jest kluczowe, gdyż pomaga ograniczać koszty, a w przypadku wykonywania pomiarów i badań wpływa na jakość uzyskanych wyników i użytek w warunkach klinicznych \cite{yang2024confusion}.
 	
 	\subsection{Czułość (Recall)}
-	\ksremark{bez nazwy angielskie w tytule}
+	\ksremark{bez nazwy angielskiej w tytule}
 	Czułość \ksremark{tutaj nazwa angielska (jak w przypadku precyzji)} $R$ definiuje zdolność modelu do wykrywania wszystkich występujących w zbiorze anomalii. Jest to stosunek poprawnie wykrytych anomalii do łącznej rzeczywistej liczby zdarzeń \cite{sathyanarayanan2024confusion}. Wzór na tą miarę jest następujący:
 	
 	\begin{equation}
 		R = \frac{TP}{TP + FN}
 		\label{eq:recall}
 	\end{equation} 
-	
-	Wysoka czułość minimalizuje ryzyko przeoczenie awarii, co jest kluczowe, dla bardzo istotnych systemów.
+	\ksremark{kropka na końcu wzoru}
+	Wysoka czułość minimalizuje ryzyko przeoczenie awarii, co jest kluczowe, \nocomma\ dla bardzo istotnych systemów \ksremark{Co to znaczy: istotny system?}.
 
 	
 	\subsection{F1}
@@ -723,13 +728,13 @@
 	
 	\chapter{Metodyka eksperymentów} 
 	
-	W tym rozdziale szczegółowo omówiono metodykę badawczą przyjętą w procesie waluacji algorytmów detekcji anomalii. W inżynierii danych i uczeniu maszynowym od nałożonego rygoru na proces eksperymentalny zależy wiarygodność, obiektywizm i jakość uzyskanych wyników, czyli wyłonienie optymalnego algorytmu do ciągłej analizy danych telemetrycznych. Koniecznym działaniem było zaprojektowanie klarownego i powtarzalnego rurociągu badawczego \ksremark{Terminologia angielska jest zwykle dziwna (np. rule of the thumb), co zauważają nawet sami Anglosasi. Dlatego nie tłumaczymy jej dosłownie. Trzeba tłumaczyć kontekstowo. Można napisać „potok eksperymetalny”, „potok badawczy”.} (ang. \english{research pipeline}).
+	W tym rozdziale szczegółowo omówiono metodykę badawczą przyjętą w procesie waluacji algorytmów detekcji anomalii. W inżynierii danych i uczeniu maszynowym od nałożonego rygoru na proces eksperymentalny zależy wiarygodność, obiektywizm i jakość uzyskanych wyników, czyli wyłonienie optymalnego algorytmu do ciągłej analizy danych telemetrycznych. Koniecznym działaniem było zaprojektowanie klarownego i powtarzalnego rurociągu badawczego \ksremark{Terminologia angielska jest zwykle dziwna (np. rule of the thumb), co zauważają nawet sami Anglosasi. Dlatego nie tłumaczymy jej dosłownie. Trzeba tłumaczyć kontekstowo. Można napisać „potok eksperymentalny”, „potok badawczy”.} (ang. \english{research pipeline}).
 	Proces eksperymentalny składa się z czterech głównych faz:
 	\begin{enumerate}
-		\item \textbf{Akwizycja i przygotowanie danych:} W tym kroku zakłada się pozyskanie rzeczywistego zbioru danych telemetrycznych(ESA-ADB), jego analiza, dobór odpowiednich kanałów oraz inżynieria cech z wykorzystaniem techniki okna kroczącego.
+		\item \textbf{Akwizycja i przygotowanie danych:} W tym kroku zakłada się pozyskanie rzeczywistego zbioru danych telemetrycznych (ESA-ADB), jego analiza, dobór odpowiednich kanałów oraz inżynieria cech z wykorzystaniem techniki okna kroczącego.
 		\item \textbf {Punkt odniesienia:} Implementacja i optymalizacja jednej z metod statystycznych, stanowiącej odniesienie do badania innych, bardziej złożonych metod.
 		\item \textbf{Właściwe badanie:} Trening i optymalizacja dobranych algorytmów z trzech różnych klas: metod statystycznych, uczenia maszynowego i głębokiego uczenia opartego na sieciach neuronowych w warunkach pełnej kontroli.
-		\item \textbf {Ewaluacja i weryfikacja:} Zestawienie uzyskanych wyników przy pomocy głównych miar (Precyzja, Czułość, F1-Score \ksremark{nazwy miar małymi literami}) oraz sprawdzenie ich rzetelności za pomocą testów statystycznych.
+		\item \textbf {Ewaluacja i weryfikacja:} Zestawienie uzyskanych wyników przy pomocy głównych miar (Precyzja, Czułość, F1-Score \ksremark{nazwy miar małymi literami}) oraz sprawdzenie ich rzetelności \ksremark{istotności} za pomocą testów statystycznych.
 	\end{enumerate}
 	
 	\newpage
@@ -774,6 +779,7 @@
 		\caption{Bilans klas oraz rozkład występowania anomalii w zbiorach danych.}
 		\label{fig:00-class-balance}
 	\end{figure}
+	\ksremark{Rys. \ref{fig:00-class-balance}: bilans czy balans?}
 	Na poniższym \ksremark{bez „poniższym”} rysunku ~\ref{fig:00-anomaly-dist} widać z kolei \comma\ jak anomalie rozkładają się w poszczególnych zbiorach. Z kolei rysunek ~\ref{fig:raw:03-distributions} przedstawia rozkład wartości surowych dla wszystkich 6 analizowanych kanałów, z wyróżnionym rozróżnieniem na dane normalne i anomalie, w formie histogramu, jakie wartości najczęściej były klasyfikowane. 
 	\begin{figure}%[H]
 		\centering
@@ -815,21 +821,22 @@
 	
 	Programy zostały wykonane w środowisku Visual Studio Code. W domyślnym folderze ze strukturą projektu znajdują się wszystkie kody spełniające poszczególne funkcje, takie jak przygotowanie danych, inżynieria cech, testowanie wszystkich trzech klas metod i porównanie wszystkich metod pod względem czasu potrzebnego do wykonania poszczególnej iteracji algorytmu z jednym zestawem parametrów, a także zużycia pamięci dla każdej z nich. Każdy program swoje wyniki w osobnym podfolderze folderu „results” \ksremark{\url{results}}. 
 	
-	\ksremark{dotąd} 
+ 
 	
 	
 	\section{Preprocessing i inżynieria cech}
 	Przed rozpoczęciem właściwych prac dokonano przygotowania danych do testowania. Dane w momencie publikacji już były uprzednio znormalizowane do przedziału $[0, 1]$ \cite{kotowski2024esaadb}. Dokonano tego zgodnie z polityką prywatności Europejskiej Agencji Kosmicznej w celu uniknięcia przypadkowego ujawnienia wrażliwych danych specyficznych dla misji. Z racji działania na danych chronologicznych, w ramach wzięcia pod uwagę lokalnego kontekstu czasowego, zastosowano technikę okna kroczącego. Polega ona na tym, że dla każdej próbki analizie poddano zarówno bieżącą wartość, jak i ustaloną wartość poprzednich danych. Okno długości $w$, w chwili $t$ obejmuje próbki od $t - w +1$ do $t$.  Używając wartości w tym oknie obliczono trzy cechy opisujące lokalne zachowanie sygnału
 	
-	Pierwszą z nich było odchylenie od lokalnego poziomu bazowego, określa ono jak bardzo wartość bieżąca różniła się od średniego poziomu obserwowanego w szerokości okna kroczącego. Pozwala ono na znalezienie momentu, w którym namierzono sytuację odchylenia sygnału od typowego przebiegu, co może sugerować występowanie anomalii. 
+	Pierwszą z nich było odchylenie \ksremark{$d_t$} od lokalnego poziomu bazowego \ksremark{$\mu_t^{(w)}$}. Określa ono jak bardzo wartość bieżąca różni się od średniego poziomu obserwowanego w szerokości okna kroczącego:
 	\begin{align}
-		d_t &= x_t - \mu_t^{(w)}, \label{eq:dt} \\
+		d_t &= x_t - \mu_t^{(w)}. \label{eq:dt}
+	\end{align}
+	gdzie $\mu_t^{(w)}$ jest lokalną średnią arytmetyczną z okna o rozmiarze $w$:
+	\begin{align}
 		\mu_t^{(w)}   &= \frac{1}{w} \sum_{i=t-w+1}^{t} x_i. \label{eq:mu}
 	\end{align}
-	gdzie $d_t$ oznacza wyznaczone odchylenie w chwili czasu $t$, a $ \mu_t^{(w)}$ jest lokalną średnią arytmetyczną z okna o rozmiarze $w$
 	
-	Drugą z nich jest odchylenie standardowe wartości znajdujących się w oknie kroczącym. Im większe okno, tym szerszy zakres. Opisuje lokalną zmianę sygnału. Cecha ta pozwala na znalezienie fragmentu, w którym sygnał stał się nagle niestabilny, lub segmentu z większym rozrzutem danych.
-	
+	Drugą z nich jest odchylenie standardowe \ksremark{$\sigma_t^{(w)}$} wartości znajdujących się w oknie kroczącym. Im większe okno, tym szerszy zakres. Opisuje lokalną zmianę sygnału. Cecha ta pozwala na znalezienie fragmentu, w którym sygnał stał się nagle niestabilny, lub segmentu z większym rozrzutem danych. \ksremark{Trzeba poprawić język.}
 	\begin{equation}
 		\sigma_t^{(w)} =
 		\sqrt{
@@ -838,20 +845,19 @@
 			\left(x_i - \mu_t^{(w)}\right)^2
 		}.
 	\end{equation}
-	gdzie $\sigma_t^{(w)}$ jest wyliczonym lokalnie odchyleniem standardowym.
 	
-	Ostatnią z wartości, którą wyznaczono z pomocą okna kroczącego jest tempo zmiany sygnału pomiędzy próbkami. Pomaga ono namierzyć moment, w którym sygnał gwałtownie zmienia swój charakter. Zależnie od wyniku, może być to skok w górę lub gwałtowny spadek. W ramach badania za tempo zmiany uznano różnicę w charakterze wartości względem pięciu ostatnich próbek. Jest to wartość, którą empirycznie dobrano we wstępnej fazie eksperymentów, gdyż obliczanie różnicy dla sąsiadujących próbek ($x_t - x_{t-1}$) nadmiernie wzmacniało szum czujników. Wartość 5 pozwala zachować dynamikę sygnału, jednocześnie wygładzając szum. Wartość tę wyznacza wzór: 
+	Ostatnią z wartości, którą wyznaczono z pomocą okna kroczącego \comma\ jest tempo zmiany sygnału pomiędzy próbkami. Pomaga ono namierzyć moment, w którym sygnał gwałtownie zmienia swój charakter. Zależnie od wyniku, może być to skok w górę lub gwałtowny spadek. W ramach badania za tempo zmiany uznano różnicę w charakterze wartości względem pięciu ostatnich próbek. Jest to wartość, którą empirycznie dobrano we wstępnej fazie eksperymentów, gdyż obliczanie różnicy dla sąsiadujących próbek ($x_t - x_{t-1}$) nadmiernie wzmacniało szum czujników \ksremark{?}. Wartość 5 pozwala zachować dynamikę sygnału, jednocześnie wygładzając szum. Wartość \ksremark{Jak się ta wartość nazywa?} tę wyznacza wzór: 
 	\begin{equation}
-		r_t^c = x_t^c - x_{t-5}^c
-	\end{equation},
-	gdzie $c$ oznacza indeks kanału telemetrycznego, a $r_t^c$ reprezentuje tempo zmiany sygnału (ang. \english{rate of change}) dla kanału w chwili $t$.
+		r_t^c = x_t^c - x_{t-5}^c,
+	\end{equation} 
+	gdzie $c$ oznacza indeks kanału telemetrycznego \ksremark{Czy ten indeks jest w ogóle potrzebny w tym wzorze?}, a $r_t^c$ reprezentuje tempo zmiany sygnału (ang. \english{rate of change}) dla kanału w chwili $t$.
 	
 	
 	
 	Wszystkie te cechy mogą tworzyć prostą reprezentację przebiegu sygnału. Po przetworzeniu danych przez okno kroczące każdy z kanałów został opisany dodatkowymi, lokalnymi cechami, a dane wejściowe dla modeli dostały rozszerzoną reprezentację i charakterystykę sygnału. Natomiast to rozwiązanie posiada jeden problem. Dla pierwszych próbek nie można obliczyć cech z pomocą okna kroczącego, bo brakuje wcześniejszych danych tworzących kontekst, który stanowi punkt odniesienia do wyliczania metryk. Proporcjonalnie, im większe okno, tym więcej danych utracono, gdyż wcześniejsze wiersze usunięto. Dzięki temu, każda próbka posiadała pełny zestaw cech. Pomimo tego, że autorzy zbioru dokonali wstępnej normalizacji \cite{kotowski2024esaadb}, obliczone cechy lokalne za pomocą techniki okna kroczącego zostały poddane dodatkowej standaryzacji z-score za pomocą funkcji \texttt{StandardScaler}. Parametry zostały wyliczone w ten sposób, czyli odchylenie standardowe i średnia tylko dla danych normalnych zbioru treningowego, co zapobiega przedostaniu się anomalii do modelu.
 	
 	\section{Dobór okna kroczącego}
-	W ramach doboru rozmiaru okna kroczącego przeprowadzono eksperyment testujący wyniki głównych miar w zależności od rozmiaru okna kroczącego, a co za tym idzie cech z nim związanych. Do badań użyto 38 rozmiarów, od pojedynczych jedności, a konkretnie 5, przez dziesiątki, setki, a kończąc na 150 tysiącach jednostek. Natomiast w ramach pierwszej próby użyto tylko okna rozmiarów do ewaluacji od 5 do 5000, aby dać umiarkowane pojęcie o charakterze, wraz z wynikami, w celu znalezienia maksimum, odpowiednio zwiększano granice, aż zwiększanie rozmiarów okien nie dawało poprawy wyników. Do testów użyto algorytmu IQR wraz z wartością mnożnika równą 0.5. Wyniki tego badania pokazuje rysunek ~\ref{fig:01b-large-windows} zamieszczony poniżej.
+	W ramach doboru rozmiaru okna kroczącego przeprowadzono eksperyment testujący wyniki głównych miar w zależności od rozmiaru okna kroczącego, a co za tym idzie cech z nim związanych. Do badań użyto 38 rozmiarów \ksremark{Trzeba podać konkretne wartości.}, od pojedynczych jedności, a konkretnie 5, przez dziesiątki, setki, a kończąc na 150 tysiącach jednostek. Natomiast w ramach pierwszej próby użyto tylko okna rozmiarów do ewaluacji od 5 do 5000 \ksremark{Trzeba podać konkretne wartości.}, aby dać umiarkowane pojęcie o charakterze, wraz z wynikami, w celu znalezienia maksimum, odpowiednio zwiększano granice, aż zwiększanie rozmiarów okien nie dawało poprawy wyników \ksremark{$\gets$ Nie rozumiem tego zdania.}. Do testów użyto algorytmu IQR wraz z wartością mnożnika równą 0.5. Wyniki tego badania pokazuje rysunek ~\ref{fig:01b-large-windows}.  
 	\begin{figure}%[H]
 		\centering
 		\includegraphics[width=0.9\textwidth]{fig_01b_large_windows.png}
@@ -867,9 +873,9 @@
 		\caption{Macierz korelacji i wpływu dobieranych parametrów na skuteczność modelu.}
 		\label{fig:02-heatmap}
 	\end{figure}
-	
-	Dla początkowych wartości okna wyniki prezentują się mało interesująco, stopniowy wzrost parametru precyzji, do wartości 50, gdzie wartość wyniosła 0.1364, lecz po tym jesteśmy świadkami meandrowania wartości, w jednym momencie rośnie, by wraz z kolejnym, większym rozmiarem powoli spadać. Ogromny skok parametru czułości nastąpił po przejściu z wartości pięciu tysięcy danych na siedem i pół tysiąca. W tym momencie wartość ta z poziomu 0.11 wzrosła aż na 0.775. Czułość, opisana w poprzednim rozdziale, jest to parametr charakteryzujący odsetek poprawnych klasyfikacji spośród wszystkich poprawnie sklasyfikowanych wartości według macierzy pomyłek. Brak skoku w precyzji oznacza natomiast dużą liczbę wartości uznanych za fałszywe pozytywne, dlatego wzrost F1-Score nie okazał się tak okazały, jak w przypadku czułości. Wraz z przekroczeniem progu 1000 danych, zaczęto obserwować także pojawianie się ułamka utraconych danych, z powodu okna kroczącego i jego wymagań. Po zakończeniu eksperymentów uznano, że najlepszą wartością okna okazała się liczba 100000, dla której wartość parametrów F1-Score wyniosła 0.2072, precyzja wyniosła 0.1174, a czułość 0.8801, przy około 0.849 procenta danych utraconych. Pełen rozkład wartości głównych miar prezentuje rysunek ~\ref{fig:02-heatmap} umieszczony powyżej. W dalszych badaniach ewaluujących metody statystyczne, uczenia maszynowego i głębokiego uczenia użyto tego rozmiaru do wyliczenia lokalnych cech pomagających algorytmom w trakcie wykonywanego zadania.
-	
+	\ksremark{Rys. \ref{fig:02-heatmap}: Co znaczy: skuteczność modelu? Co oznaczają kolory?}
+	Dla początkowych wartości okna wyniki prezentują się mało interesująco, stopniowy wzrost parametru precyzji, do wartości 50, gdzie wartość wyniosła 0.1364 \ksremark{„do wartości 50, gdzie wartość wyniosła 0.1364” To trzeba przeformułować.}, lecz po tym jesteśmy świadkami meandrowania wartości, w jednym momencie rośnie, by wraz z kolejnym, większym rozmiarem powoli spadać. Ogromny skok parametru czułości nastąpił po przejściu z wartości pięciu tysięcy danych na siedem i pół tysiąca \ksremark{Jaka jest tego przyczyna?}. W tym momencie wartość ta z poziomu 0.11 wzrosła aż na 0.775. Czułość, opisana w poprzednim rozdziale, jest to parametr charakteryzujący odsetek poprawnych klasyfikacji spośród wszystkich poprawnie sklasyfikowanych wartości według macierzy pomyłek \ksremark{To jest już napisane w poprzednim rozdziale – nie powtarzamy.}. Brak skoku w precyzji oznacza natomiast dużą liczbę wartości uznanych za fałszywe pozytywne, dlatego wzrost F1-Score nie okazał się tak okazały, jak w przypadku czułości. Wraz z przekroczeniem progu 1000 danych \ksremark{szerokości okna?}, zaczęto obserwować także pojawianie się ułamka utraconych danych, z powodu okna kroczącego i jego wymagań. Po zakończeniu eksperymentów uznano, że najlepszą wartością okna okazała się liczba 100000, dla której wartość parametrów F1-Score wyniosła 0.2072, precyzja wyniosła 0.1174, a czułość 0.8801, przy około 0.849 procenta danych utraconych. Pełen rozkład wartości głównych miar prezentuje rysunek ~\ref{fig:02-heatmap} umieszczony powyżej \ksremark{Nie piszemy „powyżej, poniżej”, bo nie wiadomo, gdzie  rysunek (czyli element pływający) się znajdzie.}. W dalszych badaniach ewaluujących metody statystyczne, uczenia maszynowego i głębokiego uczenia użyto tego rozmiaru do wyliczenia lokalnych cech pomagających algorytmom w trakcie wykonywanego zadania.
+	\ksremark{dotąd}
 	\section{Punkt odniesienia}
 	
 	We współczesnych czasach, w epoce dostępności algorytmów uczenia maszynowego i głębokiego, jednym ze sposobów przygotowania do zaawansowanej analizy algorytmów jest wprowadzenia wyniku pewnej wartości algorytmu jako punkt odniesienia, zwanego z ang. \english{baseline}. Punktem tym jest punkt przyjmowany jako minimalny próg skuteczności ewaluacji. Z powodu znacznego złożenia algorytmów uczenia maszynowego i głębokiego (znanych pod skrótami ML i DL) i kosztów obliczeniowych jakie generują w trakcie wykonywania algorytmu, lub uczenia sieci, czasowych i infrastruktury, ich zastosowanie musi być uwarunkowane istotną poprawą wyników w porównaniu do prostych, mało złożonych, można powiedzieć trywialnych, metod statystycznych. 

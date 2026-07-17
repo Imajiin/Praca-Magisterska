@@ -928,6 +928,7 @@
 	\end{figure}
 	
 	\subsection{Metoda Z-Score}
+	\ksremark{Nie powtarzamy, jak metoda działa, bo to już było wcześniej.}
 	Metoda Z-Score działa poprzez normalizację każdej z cech w odniesieniu do jej rozkładu w zbiorze treningowym i klasyfikuje próbkę jako anomalię, jeżeli któraś z cech przekracza próg ~$\theta$ w jednostkach odchylenia standardowego. Wartości progu testowane w ramach badań zawierały się w przedziale od 0.2 do 3.0
 	\begin{figure}%[H]
 		\centering
@@ -935,10 +936,11 @@
 		\caption{Wpływ progu odcięcia na metryki detekcji w metodzie Z-Score}
 		\label{fig:02b-zscore-params}
 	\end{figure}
-	Rysunek \ref{fig:02b-zscore-mod-params}, który prezentuje wyniki strojenia parametru, ukazuje podobne wyniki jak w przypadku punktu odniesienia, gdyż w początkowych wartościach, do 1.0 wartości trzymają swój poziom, który charakteryzuje się, ponownie, niską precyzją, co oznacza dużą ilość fałszywych alarmów, ale bardzo wysoką, a momentami nawet perfekcyjną, czułością, czyli wszystkie anomalie zostały wykryte w szeregu czasowym testowanym na potrzeby tego badania. Natomiast, po przekroczeniu progu 1.0 czułość rozpoczęła gwałtowny spadek, który trwał do końca badania tej metody. Zjawiskiem przyciągającym uwagę jest nieznaczne zwiększenie precyzji proporcjonalnie do progu, lecz tempo wzrostu nie odpowiada spadkowi czułości, co czyni tą poprawę mało istotną w kontekście F1-Score. Kompromisem zmian tych parametrów okazała się konfiguracja z wartością progu równą 1.5, która dała wynik F1 równy 0{,}2055, który okazał się słabszy od punktu bazowego o około pół procenta. Obie metody działają w podobny sposób, gdzie jedyną różnicą jest miara rozproszenia (IQR i odchylenie standardowe). 
+	Rysunek \ref{fig:02b-zscore-mod-params}, który prezentuje wyniki strojenia parametru, ukazuje podobne wyniki jak w przypadku punktu odniesienia, gdyż w początkowych wartościach, do 1.0 wartości trzymają swój poziom, który charakteryzuje się, ponownie, niską precyzją, co oznacza dużą ilość \ksremark{liczbę} fałszywych alarmów, ale bardzo wysoką, a momentami nawet perfekcyjną \ksremark{czyli ile?}, czułością, czyli wszystkie anomalie zostały wykryte w szeregu czasowym testowanym na potrzeby tego badania. Natomiast, po przekroczeniu progu 1.0 czułość rozpoczęła gwałtowny spadek, który trwał do końca badania tej metody. Zjawiskiem przyciągającym uwagę jest nieznaczne zwiększenie precyzji proporcjonalnie do progu, lecz tempo wzrostu nie odpowiada spadkowi czułości, co czyni tą poprawę mało istotną w kontekście F1-Score. Kompromisem zmian tych parametrów okazała się konfiguracja z wartością progu równą 1.5, która dała wynik F1 równy 0{,}2055, który okazał się słabszy od punktu bazowego o około pół procenta. Obie metody działają w podobny sposób, gdzie jedyną różnicą jest miara rozproszenia (IQR i odchylenie standardowe). 
 	
 	\subsection{Zmodyfikowana metoda Z-Score}
-	Zmodyfikowana metoda Z-Score od standardowej różni się zamianą średniej stosuję medianę. Odchylenie standardowe zastąpione jest medianą bezwzględnych odchyleń (MAD). Zmiany te dają większą odporność na skrajne wartości, które występują w zbiorze treningowym. 
+		\ksremark{Nie powtarzamy, jak metoda działa, bo to już było wcześniej.}
+	Zmodyfikowana metoda Z-Score od standardowej różni się zamianą średniej stosuję \ksremark{-e} medianę. Odchylenie standardowe zastąpione jest medianą bezwzględnych odchyleń (MAD). Zmiany te dają większą odporność na skrajne wartości, które występują w zbiorze treningowym. 
 	
 	\begin{figure}%[H]
 		\centering
@@ -947,10 +949,12 @@
 		\label{fig:02b-zscore-mod-params}
 	\end{figure}
 	
-	Wyniki, które przedstawia rysunek \ref{fig:02b-zscore-mod-params} charakter zmian wartości miar (które były testowane na tym samym zbiorze parametrów, co standardowa metoda), są podobne co do poprzedniej metody. Natomiast wzrost precyzji jest większy,  a spadek czułości znacznie mniejszy, gdyż najgorsza wartość progu powoduje czułość na poziomie około 40 \%, czyli dwa razy większym niż w przypadku oryginalnej metody Z-Score. Natomiast, nawet przy tych poprawkach, wartość F1 wynosi 0{,}2210, co oznacza, że w porównaniu do punktu odniesienia metoda ta jest gorsza o~0{,}0001 punktu F1, która jest na tyle małą liczbą, że można uznać tą różnicę za nieistotną i przyjąć metodę za równą odniesieniu.
+	Wyniki, które przedstawia rysunek \ref{fig:02b-zscore-mod-params} charakter zmian wartości miar (które były testowane na tym samym zbiorze parametrów, co standardowa metoda), są podobne co do poprzedniej metody \ksremark{Trzeba poprawić to zdanie.}. 
+	Natomiast wzrost precyzji jest większy,  a spadek czułości znacznie mniejszy, gdyż najgorsza wartość progu powoduje czułość na poziomie około 40 \%, czyli dwa razy większym niż w przypadku oryginalnej metody Z-Score. Natomiast, nawet przy tych poprawkach, wartość F1 wynosi 0{,}2210, co oznacza, że w porównaniu do punktu odniesienia metoda ta jest gorsza o~0{,}0001 punktu F1, która jest na tyle małą liczbą, że można uznać tą różnicę za nieistotną i przyjąć metodę za równą odniesieniu.
 	
 	\subsection{CUSUM}
-	Metoda CUSUM działa na mechanizmie pamięci, która zapisuje skumulowane odchylenia, co powoduje, że nakładanie cech z mechanizmu okna kroczącego jest zbędne, gdyż ich dodanie powoduje zamieszanie i niezdolność algorytmu do dochodzenia do rozsądnych wyników. W eksperymentach dla tej metody dobierano dwa parametry. Pierwszy ~$h$ to próg decyzji, a drugi ~$k$ oznacza dryf, kontrolujący wrażliwość na zmienność sygnału. Wartości te były sprawdzane w parach próg równy 0.001 i dryft 0.0001 i proporcjonalnie zwiększane do poziomu progu 0.1.
+		\ksremark{Nie powtarzamy, jak metoda działa, bo to już było wcześniej.}
+	Metoda CUSUM działa na mechanizmie pamięci, która zapisuje skumulowane odchylenia, co powoduje, że nakładanie cech z mechanizmu okna kroczącego jest zbędne, gdyż ich dodanie powoduje zamieszanie i niezdolność algorytmu do dochodzenia do rozsądnych wyników. W eksperymentach dla tej metody dobierano dwa parametry. Pierwszy ~$h$ to próg decyzji, a drugi ~$k$ oznacza dryf, kontrolujący wrażliwość na zmienność sygnału. Wartości te były sprawdzane w parach próg równy 0.001 i dryft 0.0001 i proporcjonalnie zwiększane \ksremark{o ile?} do poziomu progu 0.1.
 	
 	\begin{figure}%[H]
 		\centering
@@ -977,10 +981,10 @@
 		\label{fig:02b-ewma-threshold}
 	\end{figure}
 	
-	Rysunek \ref{fig:02b-ewma-span} ukazuje duży problem algorytmu opartego na cechach, jakakolwiek zmiana parametru \text{span}  w zakresie od 3 do 200 nie ma żadnego wpływu na wyniki. Wszystkie trzy miary nie zmieniają swojej wartości zależnie od parametru span. F1-Score zatrzymuje się na płaskim poziomie 0{,}1964, pomimo tego, że wszystkie anomalie zostały wykryte, gdyż czułość wynosiła 1.0. Te zjawisko, po części wyjaśnia rysunek \ref{fig:02b-ewma-threshold}, który pokazuje, że dla wartości $span = 3$ nawet niskie wartości progu nie poprawiają wyników, a powyżej progu 0.7 model przestaje wykrywać anomalie. Brak wrażliwości na parametr \text{span} i wąski zakres użyteczności progu, wynika z cechy \text{diff} okna kroczącego, która jest już wycentrowana przez to okno, jednocześnie negując mechanizm EWMA.  Najlepszym wynik działania algorytmu okazał się F1\,=\,0{,}1964
+	Rysunek \ref{fig:02b-ewma-span} ukazuje duży problem algorytmu opartego na cechach, \ksremark{kropka i nowe zdanie} jakakolwiek zmiana parametru \text{span}  w zakresie od 3 do 200 nie ma żadnego wpływu na wyniki. Wszystkie trzy miary nie zmieniają swojej wartości zależnie od parametru span \ksremark{inny zapis niż wyżej}. F1-Score zatrzymuje się na płaskim \ksremark{stałym} poziomie 0{,}1964, pomimo tego, że wszystkie anomalie zostały wykryte, gdyż czułość wynosiła 1.0. Te \ksremark{To} zjawisko, \nocomma\ po części wyjaśnia rysunek \ref{fig:02b-ewma-threshold}, który pokazuje, że dla wartości $span = 3$ nawet niskie wartości progu nie poprawiają wyników, a powyżej progu 0.7 model przestaje wykrywać anomalie. Brak wrażliwości na parametr \text{span} i wąski zakres użyteczności progu, wynika z cechy \text{diff} okna kroczącego, która jest już wycentrowana \ksremark{Co to znaczy?} przez to okno, jednocześnie negując mechanizm EWMA \ksremark{To trzeba wyjaśnić.}.  Najlepszym wynik działania algorytmu okazał się F1\,=\,0{,}1964 \ksremark{tryb matematyczny}
 	
 	\subsection{Podsumowanie wyników metod statystycznych}
-	Rysunek \ref{fig:02b-summary-comparison} zestawia ze sobą wszystkie najlepsze konfiguracje parametrów, dla każdej z ewaluowanych metod. Żadna z testowanych metod nie poprawiła wartości F1 punktu odniesienia. Jedną rzeczą, która charakteryzuje całokształt wyników, jest brak równowagi pomiędzy precyzją, a czułością, co ma duży wpływ na wartość F1. Wyniki wszystkich metod nie różnią się znacznie między sobą, między najlepszą (IQR, F1\,=\,0{,}2211), a najgorszą (EWMA, F1\,=\,0{,}1964) metodą jest tylko 0.0247 punktu F1 różnicy. Ograniczenie skuteczności leży nie w doborze metody, ale w naturze progowania jednowymiarowego.
+	Rysunek \ref{fig:02b-summary-comparison} zestawia ze sobą wszystkie najlepsze konfiguracje parametrów, \nocomma\ dla każdej z ewaluowanych metod. Żadna z testowanych metod nie poprawiła wartości F1 punktu \ksremark{metody} odniesienia. Jedną rzeczą, która charakteryzuje całokształt wyników, jest brak równowagi \ksremark{Co to znaczy?} pomiędzy precyzją, a czułością, co ma duży wpływ na wartość F1. Wyniki wszystkich metod nie różnią się znacznie między sobą, między najlepszą (IQR, F1\,=\,0{,}2211 \ksremark{tryb matematyczny}), a najgorszą (EWMA, F1\,=\,0{,}1964 \ksremark{tryb matematyczny}) metodą jest tylko 0.0247 punktu F1 różnicy. Ograniczenie skuteczności leży nie w doborze metody, ale w naturze progowania jednowymiarowego \ksremark{Trzeba to uzasadnić}.
 	
 	\begin{figure}%[H]
 		\centering
